@@ -32,7 +32,7 @@
 cmake_minimum_required( VERSION 2.8 )
 
 # Set the tutorial number so it's easier to re-use the CMakeLists.txt
-set( NAME uart )
+set( NAME main )
 
 # Mark the language as C so that CMake doesn't try to test the C++
 # cross-compiler's ability to compile a simple program because that will fail
@@ -55,7 +55,9 @@ add_executable( ${NAME}
     rpi-gpio.h
     rpi-interrupts.c
     rpi-interrupts.h
-    rpi-uart.c )
+    rpi-uart.c
+    rpi-i2c.c
+    rpi-i2c.h )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD

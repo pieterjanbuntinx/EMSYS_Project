@@ -1,10 +1,7 @@
-#ifndef RPI_GPIO_H
-#define RPI_GPIO_H
-
-#include "defines.h"
+#ifndef RPI_I2C_H
+#define RPI_I2C_H
 
 static volatile unsigned int* i2c_reg;
-
 
 /**
  * Control register
@@ -89,6 +86,7 @@ extern int get_clock_stretch_timeout();
  *
  */
 
-extern int read_bytes(int address, int no_bytes, char *bytes);
+int read_bytes(int , unsigned int , int , int *);
+void write_bytes(int , unsigned int *, unsigned int);
 
 #endif

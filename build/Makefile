@@ -111,17 +111,80 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named uart
+# Target rules for targets named main
 
 # Build rule for target.
-uart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uart
-.PHONY : uart
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-uart/fast:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/build
-.PHONY : uart/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+main-cstartup.obj: main-cstartup.c.obj
+
+.PHONY : main-cstartup.obj
+
+# target to build an object file
+main-cstartup.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main-cstartup.c.obj
+.PHONY : main-cstartup.c.obj
+
+main-cstartup.i: main-cstartup.c.i
+
+.PHONY : main-cstartup.i
+
+# target to preprocess a source file
+main-cstartup.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main-cstartup.c.i
+.PHONY : main-cstartup.c.i
+
+main-cstartup.s: main-cstartup.c.s
+
+.PHONY : main-cstartup.s
+
+# target to generate assembly for a file
+main-cstartup.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main-cstartup.c.s
+.PHONY : main-cstartup.c.s
+
+main-start.obj: main-start.s.obj
+
+.PHONY : main-start.obj
+
+# target to build an object file
+main-start.s.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main-start.s.obj
+.PHONY : main-start.s.obj
+
+main.obj: main.c.obj
+
+.PHONY : main.obj
+
+# target to build an object file
+main.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.obj
+.PHONY : main.c.obj
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
+.PHONY : main.c.s
 
 rpi-gpio.obj: rpi-gpio.c.obj
 
@@ -129,7 +192,7 @@ rpi-gpio.obj: rpi-gpio.c.obj
 
 # target to build an object file
 rpi-gpio.c.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-gpio.c.obj
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-gpio.c.obj
 .PHONY : rpi-gpio.c.obj
 
 rpi-gpio.i: rpi-gpio.c.i
@@ -138,7 +201,7 @@ rpi-gpio.i: rpi-gpio.c.i
 
 # target to preprocess a source file
 rpi-gpio.c.i:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-gpio.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-gpio.c.i
 .PHONY : rpi-gpio.c.i
 
 rpi-gpio.s: rpi-gpio.c.s
@@ -147,8 +210,35 @@ rpi-gpio.s: rpi-gpio.c.s
 
 # target to generate assembly for a file
 rpi-gpio.c.s:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-gpio.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-gpio.c.s
 .PHONY : rpi-gpio.c.s
+
+rpi-i2c.obj: rpi-i2c.c.obj
+
+.PHONY : rpi-i2c.obj
+
+# target to build an object file
+rpi-i2c.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-i2c.c.obj
+.PHONY : rpi-i2c.c.obj
+
+rpi-i2c.i: rpi-i2c.c.i
+
+.PHONY : rpi-i2c.i
+
+# target to preprocess a source file
+rpi-i2c.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-i2c.c.i
+.PHONY : rpi-i2c.c.i
+
+rpi-i2c.s: rpi-i2c.c.s
+
+.PHONY : rpi-i2c.s
+
+# target to generate assembly for a file
+rpi-i2c.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-i2c.c.s
+.PHONY : rpi-i2c.c.s
 
 rpi-interrupts.obj: rpi-interrupts.c.obj
 
@@ -156,7 +246,7 @@ rpi-interrupts.obj: rpi-interrupts.c.obj
 
 # target to build an object file
 rpi-interrupts.c.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-interrupts.c.obj
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-interrupts.c.obj
 .PHONY : rpi-interrupts.c.obj
 
 rpi-interrupts.i: rpi-interrupts.c.i
@@ -165,7 +255,7 @@ rpi-interrupts.i: rpi-interrupts.c.i
 
 # target to preprocess a source file
 rpi-interrupts.c.i:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-interrupts.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-interrupts.c.i
 .PHONY : rpi-interrupts.c.i
 
 rpi-interrupts.s: rpi-interrupts.c.s
@@ -174,7 +264,7 @@ rpi-interrupts.s: rpi-interrupts.c.s
 
 # target to generate assembly for a file
 rpi-interrupts.c.s:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-interrupts.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-interrupts.c.s
 .PHONY : rpi-interrupts.c.s
 
 rpi-uart.obj: rpi-uart.c.obj
@@ -183,7 +273,7 @@ rpi-uart.obj: rpi-uart.c.obj
 
 # target to build an object file
 rpi-uart.c.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-uart.c.obj
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-uart.c.obj
 .PHONY : rpi-uart.c.obj
 
 rpi-uart.i: rpi-uart.c.i
@@ -192,7 +282,7 @@ rpi-uart.i: rpi-uart.c.i
 
 # target to preprocess a source file
 rpi-uart.c.i:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-uart.c.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-uart.c.i
 .PHONY : rpi-uart.c.i
 
 rpi-uart.s: rpi-uart.c.s
@@ -201,71 +291,8 @@ rpi-uart.s: rpi-uart.c.s
 
 # target to generate assembly for a file
 rpi-uart.c.s:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/rpi-uart.c.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-uart.c.s
 .PHONY : rpi-uart.c.s
-
-uart-cstartup.obj: uart-cstartup.c.obj
-
-.PHONY : uart-cstartup.obj
-
-# target to build an object file
-uart-cstartup.c.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart-cstartup.c.obj
-.PHONY : uart-cstartup.c.obj
-
-uart-cstartup.i: uart-cstartup.c.i
-
-.PHONY : uart-cstartup.i
-
-# target to preprocess a source file
-uart-cstartup.c.i:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart-cstartup.c.i
-.PHONY : uart-cstartup.c.i
-
-uart-cstartup.s: uart-cstartup.c.s
-
-.PHONY : uart-cstartup.s
-
-# target to generate assembly for a file
-uart-cstartup.c.s:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart-cstartup.c.s
-.PHONY : uart-cstartup.c.s
-
-uart-start.obj: uart-start.s.obj
-
-.PHONY : uart-start.obj
-
-# target to build an object file
-uart-start.s.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart-start.s.obj
-.PHONY : uart-start.s.obj
-
-uart.obj: uart.c.obj
-
-.PHONY : uart.obj
-
-# target to build an object file
-uart.c.obj:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart.c.obj
-.PHONY : uart.c.obj
-
-uart.i: uart.c.i
-
-.PHONY : uart.i
-
-# target to preprocess a source file
-uart.c.i:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart.c.i
-.PHONY : uart.c.i
-
-uart.s: uart.c.s
-
-.PHONY : uart.s
-
-# target to generate assembly for a file
-uart.c.s:
-	$(MAKE) -f CMakeFiles/uart.dir/build.make CMakeFiles/uart.dir/uart.c.s
-.PHONY : uart.c.s
 
 # Help Target
 help:
@@ -274,24 +301,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... uart"
+	@echo "... main"
 	@echo "... edit_cache"
+	@echo "... main-cstartup.obj"
+	@echo "... main-cstartup.i"
+	@echo "... main-cstartup.s"
+	@echo "... main-start.obj"
+	@echo "... main.obj"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... rpi-gpio.obj"
 	@echo "... rpi-gpio.i"
 	@echo "... rpi-gpio.s"
+	@echo "... rpi-i2c.obj"
+	@echo "... rpi-i2c.i"
+	@echo "... rpi-i2c.s"
 	@echo "... rpi-interrupts.obj"
 	@echo "... rpi-interrupts.i"
 	@echo "... rpi-interrupts.s"
 	@echo "... rpi-uart.obj"
 	@echo "... rpi-uart.i"
 	@echo "... rpi-uart.s"
-	@echo "... uart-cstartup.obj"
-	@echo "... uart-cstartup.i"
-	@echo "... uart-cstartup.s"
-	@echo "... uart-start.obj"
-	@echo "... uart.obj"
-	@echo "... uart.i"
-	@echo "... uart.s"
 .PHONY : help
 
 

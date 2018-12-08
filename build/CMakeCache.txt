@@ -131,7 +131,7 @@ CMAKE_OBJCOPY:FILEPATH=arm-none-eabi-objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/arm-none-eabi-objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=uart-driver
+CMAKE_PROJECT_NAME:STATIC=main-driver
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/arm-none-eabi-ranlib
@@ -176,8 +176,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=/usr/bin/arm-none-eabi-strip
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor/toolchain-arm-none-eabi-rpibplus.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=../toolchain-arm-none-eabi-rpibplus.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -192,10 +192,10 @@ ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
 //Value Computed by CMake
-uart-driver_BINARY_DIR:STATIC=/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor/build
+main-driver_BINARY_DIR:STATIC=/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor/build
 
 //Value Computed by CMake
-uart-driver_SOURCE_DIR:STATIC=/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor
+main-driver_SOURCE_DIR:STATIC=/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor
 
 
 ########################

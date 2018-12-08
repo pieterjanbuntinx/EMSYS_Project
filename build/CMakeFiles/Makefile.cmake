@@ -12,31 +12,19 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "../toolchain-arm-none-eabi-rpibplus.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeASMCompiler.cmake.in"
   "/usr/share/cmake-3.10/Modules/CMakeASMInformation.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeDetermineASMCompiler.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeDetermineCCompiler.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeForceCompiler.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeSystem.cmake.in"
   "/usr/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeTestASMCompiler.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeTestCCompiler.cmake"
-  "/usr/share/cmake-3.10/Modules/CMakeUnixFindMake.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-ASM.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake"
-  "/usr/share/cmake-3.10/Modules/Compiler/GNU-FindBinUtils.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU.cmake"
   "/usr/share/cmake-3.10/Modules/Platform/Generic.cmake"
   "/usr/share/cmake-3.10/Modules/ProcessorCount.cmake"
@@ -50,13 +38,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.10.2/CMakeSystem.cmake"
-  "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.10.2/CMakeASMCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/uart.dir/DependInfo.cmake"
+  "CMakeFiles/main.dir/DependInfo.cmake"
   )

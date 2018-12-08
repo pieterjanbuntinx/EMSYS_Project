@@ -1,5 +1,6 @@
 #include "rpi-i2c.h"
-#include "rpi-gpio.h"
+#include "defines.h"
+#include "rpi-uart.h"
 
 /**
  * Control register
@@ -7,7 +8,6 @@
 
 void i2c_init() {
     i2c_reg = (unsigned int*) I2C_BASE;
-
 }
 
 void i2c_enable() {
@@ -38,16 +38,13 @@ void enable_int_DONE() {
     i2c_reg[I2C_CONTROL] |= (1 << 8);
 }
 
-void enable_int_DONE() {
-    i2c_reg[I2C_CONTROL] &= ~(1 << 8);
-}
-
 void start_transfer() {
+    i2c_enable();
     i2c_reg[I2C_CONTROL] |= (1 << 7);
 }
 
 void clear_FIFO_data() {
-    i2c_reg[I2C_CONTROL] |= (0b11 << 4);
+    i2c_reg[I2C_CONTROL] |= (1 << 4);
 }
 
 void set_read_transfer() {
@@ -106,8 +103,18 @@ int is_transfer_done() {
     return (i2c_reg[I2C_STATUS] >> 1) & 1;
 }
 
+void reset_transfer_done() {
+    i2c_reg[I2C_STATUS] |= (1 >> 1);
+}
+
 int is_transfer_active() {
     return (i2c_reg[I2C_STATUS] >> 0) & 1;
+}
+
+void reset_status_register() {
+    reset_CLKT();
+    reset_ERR();
+    reset_transfer_done();
 }
 
 /**
@@ -115,7 +122,7 @@ int is_transfer_active() {
  */
 
 void set_data_length(int num) {
-    i2c_reg[I2C_DLEN] ^= num;
+    i2c_reg[I2C_DLEN] = num;
 }
 
 int get_data_length() {
@@ -127,7 +134,7 @@ int get_data_length() {
  */
 
 void set_slave_address(int address) {
-    i2c_reg[I2C_SLAVE_ADDRESS] ^= address; 
+    i2c_reg[I2C_SLAVE_ADDRESS] = address; 
 }
 
 int get_slave_address() {
@@ -143,7 +150,7 @@ int get_FIFO_data() {
 }
 
 void set_FIFO_data(int data) {
-    i2c_reg[DATA_FIFO] ^= data;
+    i2c_reg[DATA_FIFO] = data;
 }
 
 /**
@@ -194,31 +201,74 @@ int get_clock_stretch_timeout() {
  *
  */
 
-int read_bytes(int address, int no_bytes, char *bytes) {
+// int read_bytes(int address, int no_bytes, char *bytes) {
+//     reset_status_register();
+//     clear_FIFO_data();
+
+//     set_slave_address(address);
+//     set_data_length(no_bytes);
+//     set_read_transfer();
+//     //enable_int_DONE();
+//     start_transfer();
+
+//     int i = 0;
+
+//     while (!is_transfer_done()) {
+//         while (does_RX_contain_DATA()) {
+//             bytes[i] = get_FIFO_data();
+//             i++;
+//         }
+//     } 
+// }
+
+int read_bytes(int address, unsigned int regAddr, int length, int *data) {
+    unsigned int bytes[] = {0x3B};
+    write_bytes(address, bytes, 1);
+
+    reset_status_register();
+    clear_FIFO_data();
+
     set_slave_address(address);
-    set_data_length(no_bytes);
+    set_data_length(length);
     set_read_transfer();
-    //enable_int_DONE();
+
     start_transfer();
 
     int i = 0;
 
-    while (!is_transfer_done()) {
-        while (does_RX_contain_DATA()) {
-            bytes[i] = get_FIFO_data();
+    while(!is_transfer_done()) {
+        while(does_RX_contain_DATA()) {
+            data[i] = get_FIFO_data();
             i++;
         }
-    } 
+    }
 }
 
+// void read_byte(int address, char *byte) {
+//     reset_status_register();
+//     clear_FIFO_data();
 
+//     set_slave_address(address);
+//     set_data_length(14);
+//     set_FIFO_data(0x3B);
+//     set_read_transfer();
+    
+//     start_transfer();
+//     while(!is_transfer_active());
+//     *byte = get_FIFO_data();
+//     while(!is_transfer_done());
+// }
 
+void write_bytes(int address, unsigned int *byte, unsigned int no_bytes) {
+    reset_status_register();
+    clear_FIFO_data();
 
-
-
-
-
-
-
-
-
+    set_data_length(no_bytes);
+    for (int i = 0; i<no_bytes; i++) { // moet dit niet +1?
+        set_FIFO_data(byte[i]);
+    }
+    set_slave_address(address);
+    set_write_transfer();
+    start_transfer();   
+    while(!is_transfer_done());
+}
