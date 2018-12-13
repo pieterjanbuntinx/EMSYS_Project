@@ -41,9 +41,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	i2c_init();
 
-	unsigned int bytes[] = {0x6B, 0x00, 0xFF};
-
-	write_bytes(ADDRESS_DEFAULT, bytes, 3);
+	init_device();
 
 	while(1) {
 		

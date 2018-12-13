@@ -220,7 +220,7 @@ int read_bytes(int address, unsigned int regAddr, int length, int *data) {
     }
 }
 
-void write_bytes(int address, unsigned int *byte, unsigned int no_bytes) {
+void write_bytes(int address, unsigned int *bytes, unsigned int no_bytes) {
     reset_status_register();
     clear_FIFO_data();
 
@@ -228,10 +228,11 @@ void write_bytes(int address, unsigned int *byte, unsigned int no_bytes) {
 
     int i;
     for (i = 0; i<no_bytes; i++) { 
-        set_FIFO_data(byte[i]);
+        set_FIFO_data(bytes[i]);
     }
     set_slave_address(address);
     set_write_transfer();
     start_transfer();   
     while(!is_transfer_done());
 }
+

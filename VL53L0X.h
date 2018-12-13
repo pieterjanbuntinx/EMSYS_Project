@@ -3,6 +3,8 @@
 
 #include "rpi-i2c.h"
 
+int stop_variable;
+
 enum regAddr
     {
       SYSRANGE_START                              = 0x00,
@@ -90,6 +92,9 @@ enum regAddr
 
 enum vcselPeriodType { VcselPeriodPreRange, VcselPeriodFinalRange };
 
+void writeReg();
+int readReg();
+int init_device();
 
 
 #endif
