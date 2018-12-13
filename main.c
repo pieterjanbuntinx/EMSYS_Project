@@ -4,12 +4,13 @@ Metal Tutorials by Brian Sidebotham and modified to implement an
 interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 ********************************************************************/
 
-#include "rpi-interrupts.h" // other exception handlers
+#include "rpi-interrupts.h" 
 #include "rpi-gpio.h"
 #include "rpi-uart.h"
 #include "rpi-i2c.h"
+#include "VL53L0X.h"
 
-#define VL53L0X_I2C_ADDRESS 0x68
+#define ADDRESS_DEFAULT 0b0101001 // VL53L0X default address
 
 const int TX_pin = 14;
 const int RX_pin = 15;
@@ -20,6 +21,10 @@ const int SCL_pin = 3;
 void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 {
 	gpio_init();
+
+	set_GPIO_pullup(&gpio[SDA_pin]);
+	set_GPIO_pullup(&gpio[SCL_pin]);
+
 	set_GPIO_alterfunc(&gpio[TX_pin], 4);
 	set_GPIO_alterfunc(&gpio[RX_pin], 4);
 	
@@ -36,10 +41,11 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	i2c_init();
 
-	char line[128];
+	unsigned int bytes[] = {0x6B, 0x00, 0xFF};
 
+	write_bytes(ADDRESS_DEFAULT, bytes, 3);
 
-	int *bytes = {0x33, 0x88, 0xF0};
-
-	write_bytes(VL53L0X_I2C_ADDRESS, &bytes, 3);
+	while(1) {
+		
+	}
 }

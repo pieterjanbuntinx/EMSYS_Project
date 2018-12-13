@@ -1,3 +1,7 @@
 {
-    "C_Cpp.dimInactiveRegions": false
+    "C_Cpp.dimInactiveRegions": false,
+    "files.associations": {
+        "rpi-uart.h": "c",
+        "rpi-interrupts.h": "c"
+    }
 }

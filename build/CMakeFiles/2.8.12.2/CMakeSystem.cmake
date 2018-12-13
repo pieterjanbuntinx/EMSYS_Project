@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "4.4.0-17763-Microsoft")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/mnt/c/Users/piete/Desktop/EMSYS_Project_ToF_sensor/toolchain-arm-none-eabi-rpibplus.cmake")
+include("/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/toolchain-arm-none-eabi-rpibplus.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")

@@ -57,7 +57,9 @@ add_executable( ${NAME}
     rpi-interrupts.h
     rpi-uart.c
     rpi-i2c.c
-    rpi-i2c.h )
+    rpi-i2c.h
+    VL53L0X.c
+    VL53L0X.h )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD

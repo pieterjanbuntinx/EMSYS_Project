@@ -197,30 +197,6 @@ int get_clock_stretch_timeout() {
     return (i2c_reg[CLOCK_STRETCH_TIMEOUT] << 16);
 }
 
-/**
- *
- */
-
-// int read_bytes(int address, int no_bytes, char *bytes) {
-//     reset_status_register();
-//     clear_FIFO_data();
-
-//     set_slave_address(address);
-//     set_data_length(no_bytes);
-//     set_read_transfer();
-//     //enable_int_DONE();
-//     start_transfer();
-
-//     int i = 0;
-
-//     while (!is_transfer_done()) {
-//         while (does_RX_contain_DATA()) {
-//             bytes[i] = get_FIFO_data();
-//             i++;
-//         }
-//     } 
-// }
-
 int read_bytes(int address, unsigned int regAddr, int length, int *data) {
     unsigned int bytes[] = {0x3B};
     write_bytes(address, bytes, 1);
@@ -244,27 +220,14 @@ int read_bytes(int address, unsigned int regAddr, int length, int *data) {
     }
 }
 
-// void read_byte(int address, char *byte) {
-//     reset_status_register();
-//     clear_FIFO_data();
-
-//     set_slave_address(address);
-//     set_data_length(14);
-//     set_FIFO_data(0x3B);
-//     set_read_transfer();
-    
-//     start_transfer();
-//     while(!is_transfer_active());
-//     *byte = get_FIFO_data();
-//     while(!is_transfer_done());
-// }
-
 void write_bytes(int address, unsigned int *byte, unsigned int no_bytes) {
     reset_status_register();
     clear_FIFO_data();
 
     set_data_length(no_bytes);
-    for (int i = 0; i<no_bytes; i++) { // moet dit niet +1?
+
+    int i;
+    for (i = 0; i<no_bytes; i++) { 
         set_FIFO_data(byte[i]);
     }
     set_slave_address(address);
