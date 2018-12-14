@@ -1,4 +1,5 @@
 #include "VL53L0X.h"
+#include "rpi-uart.h"
 
 #define ADDRESS_DEFAULT 0b0101001
 
@@ -8,14 +9,14 @@ void writeReg(int reg, int value) {
     write_bytes(ADDRESS_DEFAULT, bytes, 2);
 }
 
-// read 8 bit register
 int readReg(int reg) {
-    int write_bytes[] = { reg };
-    write_bytes(ADDRESS_DEFAULT, write_bytes, 1);
-    int *read_bytes;
-    read_bytes(ADDRESS_DEFAULT, read_bytes, 1);
-    return read_bytes[1];
+    int wbytes[] = { reg };
+    write_bytes(ADDRESS_DEFAULT, wbytes, 1);
+    int *rbytes;
+    read_bytes(ADDRESS_DEFAULT, rbytes, 1);
+    return rbytes[0];
 }
+
 
 int init_device() {
     // "Set I2C standard mode"
@@ -25,6 +26,7 @@ int init_device() {
     writeReg(0xFF, 0x01);
     writeReg(0x00, 0x00);
     stop_variable = readReg(0x91);
+    uprintf("stop_var=%d", stop_variable);
     writeReg(0x00, 0x01);
     writeReg(0xFF, 0x00);
     writeReg(0x80, 0x00);

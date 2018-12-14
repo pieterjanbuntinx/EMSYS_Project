@@ -39,9 +39,9 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	/* Enable interrupts */
 	_unlock();
 
-	i2c_init();
-
 	init_device();
+
+	uprintf("address: %x", getAddress());
 
 	while(1) {
 		
