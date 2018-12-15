@@ -39,11 +39,30 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	/* Enable interrupts */
 	_unlock();
 
-	init_device();
+	i2c_init();
 
-	uprintf("address: %x", getAddress());
+	int i;
+	int iDistance;
+	int model, revision;
 
-	while(1) {
-		
+	// For Raspberry Pi's, the I2C channel is usually 1
+	// For other boards (e.g. OrangePi) it's 0
+	i = tofInit(0, 0x29, 1); // set long range mode (up to 2m)
+	if (i != 1)
+	{
+		uprintf("There's a problem --> quit \r\n");
+		return; // problem - quit
 	}
+	uprintf("VL53L0X device successfully opened.\r\n");
+	i = tofGetModel(&model, &revision);
+	uprintf("Model ID - %d\n", model);
+	uprintf("Revision ID - %d\n", revision);
+
+	for (i=0; i<1200; i++) // read values 20 times a second for 1 minute
+	{
+		iDistance = tofReadDistance();
+		if (iDistance < 4096) // valid range?
+			uprintf("Distance = %dmm\n", iDistance);
+		usleep(50000); // 50ms
+	} 
 }

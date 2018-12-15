@@ -1,4 +1,4 @@
-file(REMOVE_RECURSE
+FILE(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.c.obj"
   "CMakeFiles/main.dir/main-cstartup.c.obj"
   "CMakeFiles/main.dir/main-start.s.obj"
@@ -12,6 +12,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang ASM C)
-  include(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
-endforeach()
+FOREACH(lang ASM C)
+  INCLUDE(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)
