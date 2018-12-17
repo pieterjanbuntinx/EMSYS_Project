@@ -3,9 +3,9 @@
 #include "rpi-i2c.h"
 //#include <stdio.h>
 #include <stdint.h>
-//#include <stdbool.h>
+#include <stdbool.h>
 //#include <string.h>
-//#include <fcntl.h>
+#include <fcntl.h>
 
 static int file_i2c = 0;
 static unsigned char stop_variable;
@@ -777,26 +777,16 @@ int iTimeout;
 int tofGetModel(int *model, int *revision)
 {
 unsigned char ucTemp[2];
-int i;
 
-	if (file_i2c == -1)
-		return 0;
-
-	if (model)
+  if (model)
 	{
-		ucTemp[0] = REG_IDENTIFICATION_MODEL_ID;
-        	i = write(file_i2c, ucTemp, 1); // write address of register to read
-        	i = read(file_i2c, ucTemp, 1);
-		if (i == 1)
-			*model = ucTemp[0];
+    readReg(REG_IDENTIFICATION_MODEL_ID);
+    *model = ucTemp[0];
 	}
 	if (revision)
 	{
-		ucTemp[0] = REG_IDENTIFICATION_REVISION_ID;
-		i = write(file_i2c, ucTemp, 1);
-		i = read(file_i2c, ucTemp, 1);
-		if (i == 1)
-			*revision = ucTemp[0];
+    ucTemp[0] = readReg(REG_IDENTIFICATION_REVISION_ID);
+	  *revision = ucTemp[0];
 	}
 	return 1;
 
