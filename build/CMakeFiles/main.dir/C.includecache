@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.c
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/VL53L0X.c
 VL53L0X.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/VL53L0X.h
 rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/rpi-uart.h
 rpi-i2c.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/rpi-i2c.h
 stdint.h
 -
 stdbool.h
@@ -20,95 +20,13 @@ stdbool.h
 fcntl.h
 -
 
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/VL53L0X.h
 
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.c
-WS2812b.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/defines.h
 
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/rpi-i2c.h
+
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/rpi-uart.h
 defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-rpi-gpio.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/main-cstartup.c
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/main.c
-rpi-interrupts.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
-rpi-gpio.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
-rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
-rpi-i2c.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
-VL53L0X.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.h
-rpi-armtimer.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
-stdint.h
--
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c
-stdint.h
--
-rpi-armtimer.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
-stdint.h
--
-defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.c
-rpi-gpio.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
-defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.c
-rpi-i2c.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
-defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.c
-stdint.h
--
-stdbool.h
--
-rpi-interrupts.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
-stdint.h
--
-defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
-rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
-WS2812b.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
-rpi-armtimer.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.c
-rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
-rpi-gpio.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
-
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
-defines.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
+/mnt/e/gitwerk/EMSYS_Project_ToF_sensor/defines.h
 
