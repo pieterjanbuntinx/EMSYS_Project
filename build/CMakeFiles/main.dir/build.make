@@ -241,6 +241,54 @@ CMakeFiles/main.dir/VL53L0X.c.obj.provides: CMakeFiles/main.dir/VL53L0X.c.obj.re
 CMakeFiles/main.dir/VL53L0X.c.obj.provides.build: CMakeFiles/main.dir/VL53L0X.c.obj
 
 
+CMakeFiles/main.dir/rpi-armtimer.c.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/rpi-armtimer.c.obj: ../rpi-armtimer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main.dir/rpi-armtimer.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/rpi-armtimer.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c
+
+CMakeFiles/main.dir/rpi-armtimer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/rpi-armtimer.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c > CMakeFiles/main.dir/rpi-armtimer.c.i
+
+CMakeFiles/main.dir/rpi-armtimer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/rpi-armtimer.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c -o CMakeFiles/main.dir/rpi-armtimer.c.s
+
+CMakeFiles/main.dir/rpi-armtimer.c.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/rpi-armtimer.c.obj.requires
+
+CMakeFiles/main.dir/rpi-armtimer.c.obj.provides: CMakeFiles/main.dir/rpi-armtimer.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-armtimer.c.obj.provides.build
+.PHONY : CMakeFiles/main.dir/rpi-armtimer.c.obj.provides
+
+CMakeFiles/main.dir/rpi-armtimer.c.obj.provides.build: CMakeFiles/main.dir/rpi-armtimer.c.obj
+
+
+CMakeFiles/main.dir/WS2812b.c.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/WS2812b.c.obj: ../WS2812b.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main.dir/WS2812b.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/WS2812b.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.c
+
+CMakeFiles/main.dir/WS2812b.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/WS2812b.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.c > CMakeFiles/main.dir/WS2812b.c.i
+
+CMakeFiles/main.dir/WS2812b.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/WS2812b.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.c -o CMakeFiles/main.dir/WS2812b.c.s
+
+CMakeFiles/main.dir/WS2812b.c.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/WS2812b.c.obj.requires
+
+CMakeFiles/main.dir/WS2812b.c.obj.provides: CMakeFiles/main.dir/WS2812b.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WS2812b.c.obj.provides.build
+.PHONY : CMakeFiles/main.dir/WS2812b.c.obj.provides
+
+CMakeFiles/main.dir/WS2812b.c.obj.provides.build: CMakeFiles/main.dir/WS2812b.c.obj
+
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.obj" \
@@ -250,7 +298,9 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/rpi-interrupts.c.obj" \
 "CMakeFiles/main.dir/rpi-uart.c.obj" \
 "CMakeFiles/main.dir/rpi-i2c.c.obj" \
-"CMakeFiles/main.dir/VL53L0X.c.obj"
+"CMakeFiles/main.dir/VL53L0X.c.obj" \
+"CMakeFiles/main.dir/rpi-armtimer.c.obj" \
+"CMakeFiles/main.dir/WS2812b.c.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -263,9 +313,11 @@ main: CMakeFiles/main.dir/rpi-interrupts.c.obj
 main: CMakeFiles/main.dir/rpi-uart.c.obj
 main: CMakeFiles/main.dir/rpi-i2c.c.obj
 main: CMakeFiles/main.dir/VL53L0X.c.obj
+main: CMakeFiles/main.dir/rpi-armtimer.c.obj
+main: CMakeFiles/main.dir/WS2812b.c.obj
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Convert the ELF output file to a binary image"
 	arm-none-eabi-objcopy ./main -O binary ./kernel.img
@@ -283,6 +335,8 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-interrupts.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-uart.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-i2c.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/VL53L0X.c.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-armtimer.c.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WS2812b.c.obj.requires
 
 .PHONY : CMakeFiles/main.dir/requires
 

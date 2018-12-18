@@ -82,6 +82,12 @@
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h">
 			<Option target="main"/>
 		</Unit>
@@ -92,6 +98,12 @@
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/main.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h">
 			<Option target="main"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.c">

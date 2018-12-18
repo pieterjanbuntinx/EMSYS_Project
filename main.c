@@ -9,6 +9,8 @@ interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 #include "rpi-uart.h"
 #include "rpi-i2c.h"
 #include "VL53L0X.h"
+#include "rpi-armtimer.h"
+#include <stdint.h>
 
 #define ADDRESS_DEFAULT 0b0101001 // VL53L0X default address
 
@@ -38,6 +40,17 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	/* Enable interrupts */
 	_unlock();
+
+	/* Setup the system timer interrupt */
+    /* Timer frequency = Clk/256 * 0x400 */
+    RPI_GetArmTimer()->Load = 0x400;
+
+    /* Setup the ARM Timer */
+    RPI_GetArmTimer()->Control =
+            RPI_ARMTIMER_CTRL_23BIT |
+            RPI_ARMTIMER_CTRL_ENABLE |
+            RPI_ARMTIMER_CTRL_INT_ENABLE |
+            RPI_ARMTIMER_CTRL_PRESCALE_256;
 
 	i2c_init();
 

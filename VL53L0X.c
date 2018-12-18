@@ -1,10 +1,8 @@
 #include "VL53L0X.h"
 #include "rpi-uart.h"
 #include "rpi-i2c.h"
-//#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-//#include <string.h>
 #include <fcntl.h>
 
 static int file_i2c = 0;

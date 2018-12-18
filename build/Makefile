@@ -150,6 +150,33 @@ VL53L0X.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/VL53L0X.c.s
 .PHONY : VL53L0X.c.s
 
+WS2812b.obj: WS2812b.c.obj
+
+.PHONY : WS2812b.obj
+
+# target to build an object file
+WS2812b.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WS2812b.c.obj
+.PHONY : WS2812b.c.obj
+
+WS2812b.i: WS2812b.c.i
+
+.PHONY : WS2812b.i
+
+# target to preprocess a source file
+WS2812b.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WS2812b.c.i
+.PHONY : WS2812b.c.i
+
+WS2812b.s: WS2812b.c.s
+
+.PHONY : WS2812b.s
+
+# target to generate assembly for a file
+WS2812b.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WS2812b.c.s
+.PHONY : WS2812b.c.s
+
 main-cstartup.obj: main-cstartup.c.obj
 
 .PHONY : main-cstartup.obj
@@ -212,6 +239,33 @@ main.s: main.c.s
 main.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.c.s
 .PHONY : main.c.s
+
+rpi-armtimer.obj: rpi-armtimer.c.obj
+
+.PHONY : rpi-armtimer.obj
+
+# target to build an object file
+rpi-armtimer.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-armtimer.c.obj
+.PHONY : rpi-armtimer.c.obj
+
+rpi-armtimer.i: rpi-armtimer.c.i
+
+.PHONY : rpi-armtimer.i
+
+# target to preprocess a source file
+rpi-armtimer.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-armtimer.c.i
+.PHONY : rpi-armtimer.c.i
+
+rpi-armtimer.s: rpi-armtimer.c.s
+
+.PHONY : rpi-armtimer.s
+
+# target to generate assembly for a file
+rpi-armtimer.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-armtimer.c.s
+.PHONY : rpi-armtimer.c.s
 
 rpi-gpio.obj: rpi-gpio.c.obj
 
@@ -333,6 +387,9 @@ help:
 	@echo "... VL53L0X.obj"
 	@echo "... VL53L0X.i"
 	@echo "... VL53L0X.s"
+	@echo "... WS2812b.obj"
+	@echo "... WS2812b.i"
+	@echo "... WS2812b.s"
 	@echo "... main-cstartup.obj"
 	@echo "... main-cstartup.i"
 	@echo "... main-cstartup.s"
@@ -340,6 +397,9 @@ help:
 	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... rpi-armtimer.obj"
+	@echo "... rpi-armtimer.i"
+	@echo "... rpi-armtimer.s"
 	@echo "... rpi-gpio.obj"
 	@echo "... rpi-gpio.i"
 	@echo "... rpi-gpio.s"

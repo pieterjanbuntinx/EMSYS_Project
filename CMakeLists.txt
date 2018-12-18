@@ -59,7 +59,11 @@ add_executable( ${NAME}
     rpi-i2c.c
     rpi-i2c.h
     VL53L0X.c
-    VL53L0X.h )
+    VL53L0X.h 
+    rpi-armtimer.h
+    rpi-armtimer.c
+    WS2812b.h
+    WS2812b.c )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD

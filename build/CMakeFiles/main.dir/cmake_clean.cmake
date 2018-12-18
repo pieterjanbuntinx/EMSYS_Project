@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/rpi-uart.c.obj"
   "CMakeFiles/main.dir/rpi-i2c.c.obj"
   "CMakeFiles/main.dir/VL53L0X.c.obj"
+  "CMakeFiles/main.dir/rpi-armtimer.c.obj"
+  "CMakeFiles/main.dir/WS2812b.c.obj"
   "main.pdb"
   "main"
 )

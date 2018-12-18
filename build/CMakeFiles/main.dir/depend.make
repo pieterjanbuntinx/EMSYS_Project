@@ -9,15 +9,26 @@ CMakeFiles/main.dir/VL53L0X.c.obj: ../defines.h
 CMakeFiles/main.dir/VL53L0X.c.obj: ../rpi-i2c.h
 CMakeFiles/main.dir/VL53L0X.c.obj: ../rpi-uart.h
 
+CMakeFiles/main.dir/WS2812b.c.obj: ../WS2812b.c
+CMakeFiles/main.dir/WS2812b.c.obj: ../WS2812b.h
+CMakeFiles/main.dir/WS2812b.c.obj: ../defines.h
+CMakeFiles/main.dir/WS2812b.c.obj: ../rpi-gpio.h
+
 CMakeFiles/main.dir/main-cstartup.c.obj: ../main-cstartup.c
 
 CMakeFiles/main.dir/main.c.obj: ../VL53L0X.h
+CMakeFiles/main.dir/main.c.obj: ../WS2812b.h
 CMakeFiles/main.dir/main.c.obj: ../defines.h
 CMakeFiles/main.dir/main.c.obj: ../main.c
+CMakeFiles/main.dir/main.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-gpio.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-i2c.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-interrupts.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-uart.h
+
+CMakeFiles/main.dir/rpi-armtimer.c.obj: ../defines.h
+CMakeFiles/main.dir/rpi-armtimer.c.obj: ../rpi-armtimer.c
+CMakeFiles/main.dir/rpi-armtimer.c.obj: ../rpi-armtimer.h
 
 CMakeFiles/main.dir/rpi-gpio.c.obj: ../defines.h
 CMakeFiles/main.dir/rpi-gpio.c.obj: ../rpi-gpio.c
@@ -28,7 +39,10 @@ CMakeFiles/main.dir/rpi-i2c.c.obj: ../rpi-i2c.c
 CMakeFiles/main.dir/rpi-i2c.c.obj: ../rpi-i2c.h
 CMakeFiles/main.dir/rpi-i2c.c.obj: ../rpi-uart.h
 
+CMakeFiles/main.dir/rpi-interrupts.c.obj: ../WS2812b.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../defines.h
+CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-armtimer.h
+CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-gpio.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.c
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-uart.h
