@@ -54,6 +54,12 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	i2c_init();
 
+	uprintf("Started reading range data...\r\n");
+
+	/**int bytes[] = {0xFF, 0xFA, 0xFB, 0xFC};
+	write_bytes(I2C_SLAVE_ADDRESS, bytes, 3);
+	read_bytes(I2C_SLAVE_ADDRESS, )*/
+ ///**
 	int i;
 	int iDistance;
 	int model, revision;
@@ -78,4 +84,5 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 			uprintf("Distance = %dmm\n", iDistance);
 		usleep(50000); // 50ms
 	} 
+// */
 }

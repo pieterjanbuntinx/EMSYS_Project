@@ -13,7 +13,7 @@ static unsigned char readReg(unsigned char ucAddr);
 static unsigned short readReg16(unsigned char ucAddr);
 static void writeReg16(unsigned char ucAddr, unsigned short usValue);
 static void writeReg(unsigned char ucAddr, unsigned char ucValue);
-static void writeRegList(unsigned char *ucList);
+static void writeRegList(unsigned int *ucList);
 static int initSensor(int);
 static int performSingleRefCalibration(uint8_t vhv_init_byte);
 static int setMeasurementTimingBudget(uint32_t budget_us);
@@ -89,9 +89,9 @@ int tofInit(int iChan, int iAddr, int bLongRange)
 static unsigned short readReg16(unsigned char ucAddr)
 {
     int wbytes[] = { ucAddr };
-    write_bytes(I2C_SLAVE_ADDRESS, wbytes, 1);
+    write_bytes(I2C_SLAVE, wbytes, 1);
     int *rbytes;
-    read_bytes(I2C_SLAVE_ADDRESS, rbytes, 2);
+    read_bytes(I2C_SLAVE, rbytes, 2);
     return (rbytes[1] & 0xFF00) | (rbytes[0] & 0xFF);
 } /* readReg16() */
 
@@ -101,17 +101,17 @@ static unsigned short readReg16(unsigned char ucAddr)
 static unsigned char readReg(unsigned char ucAddr)
 {
     int wbytes[] = { ucAddr };
-    write_bytes(I2C_SLAVE_ADDRESS, wbytes, 1);
+    write_bytes(I2C_SLAVE, wbytes, 1);
     int *rbytes;
-    read_bytes(I2C_SLAVE_ADDRESS, rbytes, 1);
+    read_bytes(I2C_SLAVE, rbytes, 1);
     return rbytes[0];
 } /* ReadReg() */
 
 static void readMulti(unsigned char ucAddr, unsigned char *pBuf, int iCount)
 {
     int wbytes[] = { ucAddr };
-    write_bytes(I2C_SLAVE_ADDRESS, wbytes, 1);
-    read_bytes(I2C_SLAVE_ADDRESS, (unsigned int*) pBuf, iCount);
+    write_bytes(I2C_SLAVE, wbytes, 1);
+    read_bytes(I2C_SLAVE, (unsigned int*) pBuf, iCount);
 } /* readMulti() */
 
 static void writeMulti(unsigned char ucAddr, unsigned char *pBuf, int iCount)
@@ -122,7 +122,7 @@ static void writeMulti(unsigned char ucAddr, unsigned char *pBuf, int iCount)
     for (i = 0; i<iCount; i++) {
         bytes[i+1] = pBuf[i];
     }
-    write_bytes(I2C_SLAVE_ADDRESS, bytes, iCount+1);
+    write_bytes(I2C_SLAVE, bytes, iCount+1);
 } /* writeMulti() */
 
 //
@@ -132,7 +132,7 @@ static void writeReg16(unsigned char ucAddr, unsigned short usValue)
 {
     int bytes[] = {ucAddr, usValue & 0xFF00, usValue & 0xFF};
     
-    write_bytes(I2C_SLAVE_ADDRESS, bytes, 3);
+    write_bytes(I2C_SLAVE, bytes, 3);
 } /* writeReg16() */
 
 //
@@ -141,28 +141,32 @@ static void writeReg16(unsigned char ucAddr, unsigned short usValue)
 static void writeReg(unsigned char ucAddr, unsigned char ucValue)
 {
     int bytes[] = { ucAddr, ucValue & 0xFF };
-    write_bytes(I2C_SLAVE_ADDRESS, bytes, 2);
+    write_bytes(I2C_SLAVE, bytes, 2);
 } /* writeReg() */
 
 //
 // Write a list of register/value pairs to the I2C device
 //
-static void writeRegList(unsigned char *ucList)
+static void writeRegList(unsigned int *ucList)
 {
-    unsigned char ucCount = *ucList++; // count is the first element in the list
-    write_bytes(I2C_SLAVE_ADDRESS, (unsigned int*) ucList, ucCount);
+    unsigned int ucCount = *ucList++; // count is the first element in the list
+    unsigned int i;
+    for (i = 0; i<ucCount; i++) {
+      writeReg(*ucList, *(ucList+1));
+      ucList += 2;
+    }
 } /* writeRegList() */
 
 //
 // Register init lists consist of the count followed by register/value pairs
 //
-unsigned char ucI2CMode[] = {4, 0x88,0x00, 0x80,0x01, 0xff,0x01, 0x00,0x00};
-unsigned char ucI2CMode2[] = {3, 0x00,0x01, 0xff,0x00, 0x80,0x00};
-unsigned char ucSPAD0[] = {4, 0x80,0x01, 0xff,0x01, 0x00,0x00, 0xff,0x06};
-unsigned char ucSPAD1[] = {5, 0xff,0x07, 0x81,0x01, 0x80,0x01, 0x94,0x6b, 0x83,0x00};
-unsigned char ucSPAD2[] = {4, 0xff,0x01, 0x00,0x01, 0xff,0x00, 0x80,0x00};
-unsigned char ucSPAD[] = {5, 0xff,0x01, 0x4f,0x00, 0x4e,0x2c, 0xff,0x00, 0xb6,0xb4};
-unsigned char ucDefTuning[] = {80, 0xff,0x01, 0x00,0x00, 0xff,0x00, 0x09,0x00,
+unsigned int ucI2CMode[] = {4, 0x88,0x00, 0x80,0x01, 0xff,0x01, 0x00,0x00};
+unsigned int ucI2CMode2[] = {3, 0x00,0x01, 0xff,0x00, 0x80,0x00};
+unsigned int ucSPAD0[] = {4, 0x80,0x01, 0xff,0x01, 0x00,0x00, 0xff,0x06};
+unsigned int ucSPAD1[] = {5, 0xff,0x07, 0x81,0x01, 0x80,0x01, 0x94,0x6b, 0x83,0x00};
+unsigned int ucSPAD2[] = {4, 0xff,0x01, 0x00,0x01, 0xff,0x00, 0x80,0x00};
+unsigned int ucSPAD[] = {5, 0xff,0x01, 0x4f,0x00, 0x4e,0x2c, 0xff,0x00, 0xb6,0xb4};
+unsigned int ucDefTuning[] = {80, 0xff,0x01, 0x00,0x00, 0xff,0x00, 0x09,0x00,
 0x10,0x00, 0x11,0x00, 0x24,0x01, 0x25,0xff, 0x75,0x00, 0xff,0x01, 0x4e,0x2c,
 0x48,0x00, 0x30,0x20, 0xff,0x00, 0x30,0x09, 0x54,0x00, 0x31,0x04, 0x32,0x03,
 0x40,0x83, 0x46,0x25, 0x60,0x00, 0x27,0x00, 0x50,0x06, 0x51,0x00, 0x52,0x96,
@@ -651,13 +655,13 @@ int iTimeout;
 //
 static int initSensor(int bLongRangeMode)
 {
-unsigned char spad_count=0, spad_type_is_aperture=0, ref_spad_map[6];
-unsigned char ucFirstSPAD, ucSPADsEnabled;
-int i;
+  unsigned char spad_count=0, spad_type_is_aperture=0, ref_spad_map[6];
+  unsigned char ucFirstSPAD, ucSPADsEnabled;
+  int i;
 
 // set 2.8V mode
   writeReg(VHV_CONFIG_PAD_SCL_SDA__EXTSUP_HV,
-  readReg(VHV_CONFIG_PAD_SCL_SDA__EXTSUP_HV) | 0x01); // set bit 0
+    readReg(VHV_CONFIG_PAD_SCL_SDA__EXTSUP_HV) | 0x01); // set bit 0
 // Set I2C standard mode
   writeRegList(ucI2CMode);
   stop_variable = readReg(0x91);

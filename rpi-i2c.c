@@ -195,7 +195,7 @@ int read_byte_from_FIFO() {
 
 void write_bytes_to_FIFO(unsigned int *bytes, unsigned int no_bytes) {
     unsigned int i;
-    for (i=0; i<no_bytes && i<16; i++) {
+    for (i=0; (i<no_bytes) && (i<16); i++) {
         i2c_reg[DATA_FIFO] = (*(bytes+i) & 0xFF);
     }
 }
