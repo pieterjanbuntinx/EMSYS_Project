@@ -1,4 +1,4 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.c.obj"
   "CMakeFiles/main.dir/main-cstartup.c.obj"
   "CMakeFiles/main.dir/main-start.s.obj"
@@ -8,12 +8,12 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/main.dir/rpi-i2c.c.obj"
   "CMakeFiles/main.dir/VL53L0X.c.obj"
   "CMakeFiles/main.dir/rpi-armtimer.c.obj"
-  "CMakeFiles/main.dir/WS2812b.c.obj"
+  "CMakeFiles/main.dir/WS2812B.c.obj"
   "main.pdb"
   "main"
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang ASM C)
-  INCLUDE(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang ASM C)
+  include(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

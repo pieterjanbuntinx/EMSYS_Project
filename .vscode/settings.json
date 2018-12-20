@@ -9,6 +9,8 @@
         "fcntl.h": "c",
         "stdbool.h": "c",
         "rpi-gpio.h": "c",
-        "rpi-armtimer.h": "c"
+        "rpi-armtimer.h": "c",
+        "vl53l0x.h": "c",
+        "ws2812b.h": "c"
     }
 }

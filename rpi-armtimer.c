@@ -20,3 +20,7 @@ void RPI_ArmTimerInit(void)
 {
 
 }
+
+uint32_t RPI_getRAWIRQ() {
+    return (*rpiArmTimer).RAWIRQ;
+}

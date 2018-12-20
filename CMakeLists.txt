@@ -62,8 +62,8 @@ add_executable( ${NAME}
     VL53L0X.h 
     rpi-armtimer.h
     rpi-armtimer.c
-    WS2812b.h
-    WS2812b.c )
+    WS2812B.h
+    WS2812B.c )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD

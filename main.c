@@ -20,6 +20,8 @@ const int RX_pin = 15;
 const int SDA_pin = 2;
 const int SCL_pin = 3;
 
+const int LED_pin = 18;
+
 void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 {
 	gpio_init();
@@ -32,6 +34,8 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	
 	set_GPIO_alterfunc(&gpio[SDA_pin], 4);
 	set_GPIO_alterfunc(&gpio[SCL_pin], 4);
+
+	set_GPIO_output(&gpio[LED_pin]);
 
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_UART_IRQ;	
 
@@ -56,33 +60,34 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	uprintf("Started reading range data...\r\n");
 
-	/**int bytes[] = {0xFF, 0xFA, 0xFB, 0xFC};
-	write_bytes(I2C_SLAVE_ADDRESS, bytes, 3);
-	read_bytes(I2C_SLAVE_ADDRESS, )*/
- ///**
-	int i;
-	int iDistance;
-	int model, revision;
 
-	// For Raspberry Pi's, the I2C channel is usually 1
-	// For other boards (e.g. OrangePi) it's 0
-	i = tofInit(0, 0x29, 1); // set long range mode (up to 2m)
-	if (i != 1)
-	{
-		uprintf("There's a problem --> quit \r\n");
-		return; // problem - quit
-	}
-	uprintf("VL53L0X device successfully opened.\r\n");
-	i = tofGetModel(&model, &revision);
-	uprintf("Model ID - %d\n", model);
-	uprintf("Revision ID - %d\n", revision);
+// 	/**int bytes[] = {0xFF, 0xFA, 0xFB, 0xFC};
+// 	write_bytes(I2C_SLAVE_ADDRESS, bytes, 3);
+// 	read_bytes(I2C_SLAVE_ADDRESS, )*/
+//  ///**
+// 	int i;
+// 	int iDistance;
+// 	int model, revision;
 
-	for (i=0; i<1200; i++) // read values 20 times a second for 1 minute
-	{
-		iDistance = tofReadDistance();
-		if (iDistance < 4096) // valid range?
-			uprintf("Distance = %dmm\n", iDistance);
-		usleep(50000); // 50ms
-	} 
+// 	// For Raspberry Pi's, the I2C channel is usually 1
+// 	// For other boards (e.g. OrangePi) it's 0
+// 	i = tofInit(0, 0x29, 0); // set long range mode (up to 2m)
+// 	if (i != 1)
+// 	{
+// 		uprintf("There's a problem --> quit \r\n");
+// 		return; // problem - quit
+// 	}
+// 	uprintf("VL53L0X device successfully opened.\r\n");
+//  	i = tofGetModel(&model, &revision);
+// 	uprintf("Model ID - %d\n", model);
+// 	uprintf("Revision ID - %d\n", revision);
+
+// 	for (i=0; i<1200; i++) // read values 20 times a second for 1 minute
+// 	{
+// 		iDistance = tofReadDistance();
+// 		if (iDistance < 4096) // valid range?
+// 			uprintf("Distance = %dmm\n", iDistance);
+// 		usleep(50000); // 50ms
+// 	}
 // */
 }

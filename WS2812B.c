@@ -1,6 +1,14 @@
-#include "WS2812b.h"
+#include "WS2812B.h"
+
+int status = 1;
 
 void ws2812b_handler() {
-    if (1) return;
-    RPI_GetArmTimer()->IRQClear = 1;    
+    //if (RPI_getRAWIRQ() & 0b1) {
+        if (status) {
+            clear_pin(&gpio[18]);
+        } else {
+            set_pin(&gpio[18]);
+        }
+        RPI_GetArmTimer()->IRQClear = 1;
+   // } 
 }
