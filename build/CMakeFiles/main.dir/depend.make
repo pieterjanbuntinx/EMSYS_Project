@@ -3,12 +3,6 @@
 
 CMakeFiles/main.dir/main-start.s.obj: ../main-start.s
 
-CMakeFiles/main.dir/VL53L0X.c.obj: ../VL53L0X.c
-CMakeFiles/main.dir/VL53L0X.c.obj: ../VL53L0X.h
-CMakeFiles/main.dir/VL53L0X.c.obj: ../defines.h
-CMakeFiles/main.dir/VL53L0X.c.obj: ../rpi-i2c.h
-CMakeFiles/main.dir/VL53L0X.c.obj: ../rpi-uart.h
-
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.c
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../defines.h
@@ -16,10 +10,17 @@ CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-gpio.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-uart.h
 
+CMakeFiles/main.dir/WiiClassic.c.obj: ../WiiClassic.c
+CMakeFiles/main.dir/WiiClassic.c.obj: ../WiiClassic.h
+CMakeFiles/main.dir/WiiClassic.c.obj: ../defines.h
+CMakeFiles/main.dir/WiiClassic.c.obj: ../rpi-armtimer.h
+CMakeFiles/main.dir/WiiClassic.c.obj: ../rpi-i2c.h
+CMakeFiles/main.dir/WiiClassic.c.obj: ../rpi-uart.h
+
 CMakeFiles/main.dir/main-cstartup.c.obj: ../main-cstartup.c
 
-CMakeFiles/main.dir/main.c.obj: ../VL53L0X.h
 CMakeFiles/main.dir/main.c.obj: ../WS2812b.h
+CMakeFiles/main.dir/main.c.obj: ../WiiClassic.h
 CMakeFiles/main.dir/main.c.obj: ../defines.h
 CMakeFiles/main.dir/main.c.obj: ../main.c
 CMakeFiles/main.dir/main.c.obj: ../rpi-armtimer.h

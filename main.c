@@ -8,9 +8,9 @@ interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 #include "rpi-gpio.h"
 #include "rpi-uart.h"
 #include "rpi-i2c.h"
-#include "VL53L0X.h"
 #include "rpi-armtimer.h"
 #include <stdint.h>
+#include "WiiClassic.h"
 
 #define ADDRESS_DEFAULT 0b0101001 // VL53L0X default address
 
@@ -60,34 +60,6 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	uprintf("Started reading range data...\r\n");
 
-
-// 	/**int bytes[] = {0xFF, 0xFA, 0xFB, 0xFC};
-// 	write_bytes(I2C_SLAVE_ADDRESS, bytes, 3);
-// 	read_bytes(I2C_SLAVE_ADDRESS, )*/
-//  ///**
-// 	int i;
-// 	int iDistance;
-// 	int model, revision;
-
-// 	// For Raspberry Pi's, the I2C channel is usually 1
-// 	// For other boards (e.g. OrangePi) it's 0
-// 	i = tofInit(0, 0x29, 0); // set long range mode (up to 2m)
-// 	if (i != 1)
-// 	{
-// 		uprintf("There's a problem --> quit \r\n");
-// 		return; // problem - quit
-// 	}
-// 	uprintf("VL53L0X device successfully opened.\r\n");
-//  	i = tofGetModel(&model, &revision);
-// 	uprintf("Model ID - %d\n", model);
-// 	uprintf("Revision ID - %d\n", revision);
-
-// 	for (i=0; i<1200; i++) // read values 20 times a second for 1 minute
-// 	{
-// 		iDistance = tofReadDistance();
-// 		if (iDistance < 4096) // valid range?
-// 			uprintf("Distance = %dmm\n", iDistance);
-// 		usleep(50000); // 50ms
-// 	}
-// */
+	init_WiiClassic();
+	read_WiiClassic(0);
 }

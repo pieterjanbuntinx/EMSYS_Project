@@ -123,33 +123,6 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-VL53L0X.obj: VL53L0X.c.obj
-
-.PHONY : VL53L0X.obj
-
-# target to build an object file
-VL53L0X.c.obj:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/VL53L0X.c.obj
-.PHONY : VL53L0X.c.obj
-
-VL53L0X.i: VL53L0X.c.i
-
-.PHONY : VL53L0X.i
-
-# target to preprocess a source file
-VL53L0X.c.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/VL53L0X.c.i
-.PHONY : VL53L0X.c.i
-
-VL53L0X.s: VL53L0X.c.s
-
-.PHONY : VL53L0X.s
-
-# target to generate assembly for a file
-VL53L0X.c.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/VL53L0X.c.s
-.PHONY : VL53L0X.c.s
-
 WS2812B.obj: WS2812B.c.obj
 
 .PHONY : WS2812B.obj
@@ -176,6 +149,33 @@ WS2812B.s: WS2812B.c.s
 WS2812B.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WS2812B.c.s
 .PHONY : WS2812B.c.s
+
+WiiClassic.obj: WiiClassic.c.obj
+
+.PHONY : WiiClassic.obj
+
+# target to build an object file
+WiiClassic.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WiiClassic.c.obj
+.PHONY : WiiClassic.c.obj
+
+WiiClassic.i: WiiClassic.c.i
+
+.PHONY : WiiClassic.i
+
+# target to preprocess a source file
+WiiClassic.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WiiClassic.c.i
+.PHONY : WiiClassic.c.i
+
+WiiClassic.s: WiiClassic.c.s
+
+.PHONY : WiiClassic.s
+
+# target to generate assembly for a file
+WiiClassic.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WiiClassic.c.s
+.PHONY : WiiClassic.c.s
 
 main-cstartup.obj: main-cstartup.c.obj
 
@@ -384,12 +384,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... main"
 	@echo "... edit_cache"
-	@echo "... VL53L0X.obj"
-	@echo "... VL53L0X.i"
-	@echo "... VL53L0X.s"
 	@echo "... WS2812B.obj"
 	@echo "... WS2812B.i"
 	@echo "... WS2812B.s"
+	@echo "... WiiClassic.obj"
+	@echo "... WiiClassic.i"
+	@echo "... WiiClassic.s"
 	@echo "... main-cstartup.obj"
 	@echo "... main-cstartup.i"
 	@echo "... main-cstartup.s"

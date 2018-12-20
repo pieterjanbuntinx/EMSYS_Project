@@ -217,33 +217,9 @@ CMakeFiles/main.dir/rpi-i2c.c.obj.provides: CMakeFiles/main.dir/rpi-i2c.c.obj.re
 CMakeFiles/main.dir/rpi-i2c.c.obj.provides.build: CMakeFiles/main.dir/rpi-i2c.c.obj
 
 
-CMakeFiles/main.dir/VL53L0X.c.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/VL53L0X.c.obj: ../VL53L0X.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main.dir/VL53L0X.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/VL53L0X.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.c
-
-CMakeFiles/main.dir/VL53L0X.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/VL53L0X.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.c > CMakeFiles/main.dir/VL53L0X.c.i
-
-CMakeFiles/main.dir/VL53L0X.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/VL53L0X.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/VL53L0X.c -o CMakeFiles/main.dir/VL53L0X.c.s
-
-CMakeFiles/main.dir/VL53L0X.c.obj.requires:
-
-.PHONY : CMakeFiles/main.dir/VL53L0X.c.obj.requires
-
-CMakeFiles/main.dir/VL53L0X.c.obj.provides: CMakeFiles/main.dir/VL53L0X.c.obj.requires
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/VL53L0X.c.obj.provides.build
-.PHONY : CMakeFiles/main.dir/VL53L0X.c.obj.provides
-
-CMakeFiles/main.dir/VL53L0X.c.obj.provides.build: CMakeFiles/main.dir/VL53L0X.c.obj
-
-
 CMakeFiles/main.dir/rpi-armtimer.c.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/rpi-armtimer.c.obj: ../rpi-armtimer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main.dir/rpi-armtimer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main.dir/rpi-armtimer.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/rpi-armtimer.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c
 
 CMakeFiles/main.dir/rpi-armtimer.c.i: cmake_force
@@ -267,7 +243,7 @@ CMakeFiles/main.dir/rpi-armtimer.c.obj.provides.build: CMakeFiles/main.dir/rpi-a
 
 CMakeFiles/main.dir/WS2812B.c.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main.dir/WS2812B.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/main.dir/WS2812B.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/WS2812B.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.c
 
 CMakeFiles/main.dir/WS2812B.c.i: cmake_force
@@ -289,6 +265,30 @@ CMakeFiles/main.dir/WS2812B.c.obj.provides: CMakeFiles/main.dir/WS2812B.c.obj.re
 CMakeFiles/main.dir/WS2812B.c.obj.provides.build: CMakeFiles/main.dir/WS2812B.c.obj
 
 
+CMakeFiles/main.dir/WiiClassic.c.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/WiiClassic.c.obj: ../WiiClassic.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/main.dir/WiiClassic.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/WiiClassic.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.c
+
+CMakeFiles/main.dir/WiiClassic.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/WiiClassic.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.c > CMakeFiles/main.dir/WiiClassic.c.i
+
+CMakeFiles/main.dir/WiiClassic.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/WiiClassic.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.c -o CMakeFiles/main.dir/WiiClassic.c.s
+
+CMakeFiles/main.dir/WiiClassic.c.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/WiiClassic.c.obj.requires
+
+CMakeFiles/main.dir/WiiClassic.c.obj.provides: CMakeFiles/main.dir/WiiClassic.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WiiClassic.c.obj.provides.build
+.PHONY : CMakeFiles/main.dir/WiiClassic.c.obj.provides
+
+CMakeFiles/main.dir/WiiClassic.c.obj.provides.build: CMakeFiles/main.dir/WiiClassic.c.obj
+
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.obj" \
@@ -298,9 +298,9 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/rpi-interrupts.c.obj" \
 "CMakeFiles/main.dir/rpi-uart.c.obj" \
 "CMakeFiles/main.dir/rpi-i2c.c.obj" \
-"CMakeFiles/main.dir/VL53L0X.c.obj" \
 "CMakeFiles/main.dir/rpi-armtimer.c.obj" \
-"CMakeFiles/main.dir/WS2812B.c.obj"
+"CMakeFiles/main.dir/WS2812B.c.obj" \
+"CMakeFiles/main.dir/WiiClassic.c.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -312,9 +312,9 @@ main: CMakeFiles/main.dir/rpi-gpio.c.obj
 main: CMakeFiles/main.dir/rpi-interrupts.c.obj
 main: CMakeFiles/main.dir/rpi-uart.c.obj
 main: CMakeFiles/main.dir/rpi-i2c.c.obj
-main: CMakeFiles/main.dir/VL53L0X.c.obj
 main: CMakeFiles/main.dir/rpi-armtimer.c.obj
 main: CMakeFiles/main.dir/WS2812B.c.obj
+main: CMakeFiles/main.dir/WiiClassic.c.obj
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable main"
@@ -334,9 +334,9 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-gpio.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-interrupts.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-uart.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-i2c.c.obj.requires
-CMakeFiles/main.dir/requires: CMakeFiles/main.dir/VL53L0X.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-armtimer.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WS2812B.c.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WiiClassic.c.obj.requires
 
 .PHONY : CMakeFiles/main.dir/requires
 

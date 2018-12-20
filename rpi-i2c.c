@@ -59,7 +59,7 @@ void set_write_transfer() {
  * Status register
 */
 
-int is_CLKT() {
+bool is_CLKT() {
     return (i2c_reg[I2C_STATUS] >> 9) & 1;
 }
 
@@ -67,7 +67,7 @@ void reset_CLKT() {
     i2c_reg[I2C_STATUS] |= (1 << 9);
 }
 
-int is_ERR() {
+bool is_ERR() {
     return (i2c_reg[I2C_STATUS] & I2C_S_ERR);
 }
 
@@ -75,31 +75,31 @@ void reset_ERR() {
     i2c_reg[I2C_STATUS] |= (1 << 8);
 }
 
-int is_RX_FIFO_full() {
+bool is_RX_FIFO_full() {
     return (i2c_reg[I2C_STATUS] >> 7) & 1;
 }
 
-int is_TX_FIFO_empty() {
+bool is_TX_FIFO_empty() {
     return (i2c_reg[I2C_STATUS] >> 6) & 1;
 }
 
-int does_RX_contain_DATA() {
+bool does_RX_contain_DATA() {
     return (i2c_reg[I2C_STATUS] >> 5) & 1;
 }
 
-int does_TX_accept_DATA() {
+bool does_TX_accept_DATA() {
     return (i2c_reg[I2C_STATUS] >> 4) & 1;
 }
 
-int does_RX_need_reading() {
+bool does_RX_need_reading() {
     return (i2c_reg[I2C_STATUS] >> 3) & 1;
 }
 
-int does_TX_need_writing() {
+bool does_TX_need_writing() {
     return (i2c_reg[I2C_STATUS] >> 2) & 1;
 }
 
-int is_transfer_done() {
+bool is_transfer_done() {
     return (i2c_reg[I2C_STATUS] >> 1) & 1;
 }
 
@@ -107,7 +107,7 @@ void reset_transfer_done() {
     i2c_reg[I2C_STATUS] |= (1 >> 1);
 }
 
-int is_transfer_active() {
+bool is_transfer_active() {
     return (i2c_reg[I2C_STATUS] >> 0) & 1;
 }
 
@@ -125,7 +125,7 @@ void set_data_length(int num) {
     i2c_reg[I2C_DLEN] = num;
 }
 
-int get_data_length() {
+uint16_t get_data_length() {
     return (i2c_reg[I2C_DLEN] << 16);
 }
 
@@ -133,23 +133,23 @@ int get_data_length() {
  * Slave address register
  */
 
-void set_slave_address(int address) {
-    i2c_reg[I2C_SLAVE_ADDRESS] = address; 
+void set_slave_address(uint8_t address) {
+    i2c_reg[I2C_SLAVE_ADDRESS] = address & 0x7F; 
 }
 
-int get_slave_address() {
-    return (i2c_reg[I2C_SLAVE_ADDRESS] << 25); 
+uint8_t get_slave_address() {
+    return (i2c_reg[I2C_SLAVE_ADDRESS] << 25) & 0x7F; 
 }
 
 /**
  * Clock divider register
  */
 
-void set_clock_divider(int divisor) {
+void set_clock_divider(uint16_t divisor) {
     i2c_reg[CLOCK_DIVIDER] ^= divisor;
 }
 
-int get_clock_divider() {
+uint16_t get_clock_divider() {
     return (i2c_reg[CLOCK_DIVIDER] << 16);
 }
 
@@ -157,19 +157,19 @@ int get_clock_divider() {
  * Data delay register
  */
 
-void set_falling_edge_delay(int delay) {
+void set_falling_edge_delay(uint16_t delay) {
     i2c_reg[DATA_DELAY] ^= (delay << 16);
 }
 
-int get_falling_edge_delay() {
+uint16_t get_falling_edge_delay() {
     return (i2c_reg[DATA_DELAY] >> 16);
 }
 
-void set_rising_edge_delay(int delay) {
+void set_rising_edge_delay(uint16_t delay) {
     i2c_reg[DATA_DELAY] ^= delay;
 }
 
-int get_rising_edge_delay() {
+uint16_t get_rising_edge_delay() {
     return (i2c_reg[DATA_DELAY] << 16);
 }
 
@@ -177,11 +177,11 @@ int get_rising_edge_delay() {
  * Clock stretch timeout register
  */
 
-void set_clock_stretch_timeout(int timeout) {
+void set_clock_stretch_timeout(uint16_t timeout) {
     i2c_reg[CLOCK_STRETCH_TIMEOUT] ^= timeout;
 }
 
-int get_clock_stretch_timeout() {
+uint16_t get_clock_stretch_timeout() {
     return (i2c_reg[CLOCK_STRETCH_TIMEOUT] << 16);
 }
 
@@ -189,22 +189,22 @@ int get_clock_stretch_timeout() {
  * Data FIFO register
  */
 
-int read_byte_from_FIFO() {
+uint8_t read_byte_from_FIFO() {
     return (i2c_reg[DATA_FIFO] & 0xFF);
 }
 
-void write_bytes_to_FIFO(unsigned int *bytes, unsigned int no_bytes) {
-    unsigned int i;
+void write_bytes_to_FIFO(uint8_t *bytes, uint16_t no_bytes) {
+    uint16_t i;
     for (i=0; (i<no_bytes) && (i<16); i++) {
         i2c_reg[DATA_FIFO] = (*(bytes+i) & 0xFF);
     }
 }
 
-int read_status_reg() {
+uint32_t read_status_reg() {
     return i2c_reg[I2C_STATUS];
 }
 
-void read_bytes(unsigned int address, unsigned int *bytes, unsigned int no_bytes) {
+void read_bytes(uint8_t address, uint8_t *bytes, int no_bytes) {
     reset_status_register();
     clear_FIFO_data();
 
@@ -216,7 +216,7 @@ void read_bytes(unsigned int address, unsigned int *bytes, unsigned int no_bytes
     while (!is_transfer_done()) {
         // Check if the FIFO is full but not all the data has been transmitted
         if (does_RX_need_reading()) {
-            unsigned int i;
+            uint16_t i;
             for (i=0; i<16; i++) {
                 *bytes = read_byte_from_FIFO();
                 bytes++;
@@ -230,14 +230,16 @@ void read_bytes(unsigned int address, unsigned int *bytes, unsigned int no_bytes
     }
 
     //read remaining data in the fifo
-    unsigned int i;
+    uint16_t i;
     for (i=0; i<no_bytes; i++) {
         *bytes = read_byte_from_FIFO();
         bytes++;
     }
+    reset_status_register();
+    clear_FIFO_data();
 }
 
-void write_bytes(unsigned int address, unsigned int *bytes, unsigned int no_bytes) {
+void write_bytes(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
     reset_status_register();
     clear_FIFO_data();
 
@@ -262,5 +264,7 @@ void write_bytes(unsigned int address, unsigned int *bytes, unsigned int no_byte
             break;
         }
     }
+    reset_status_register();
+    clear_FIFO_data();
 }
 
