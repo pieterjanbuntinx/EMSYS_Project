@@ -53,6 +53,13 @@
 #define buttonZRBytes	    WII_BYTE5,WII_BIT2,true
 #define buttonZLBytes	    WII_BYTE5,WII_BIT7,true
 
+uint8_t readReg(uint8_t ucAddr);
+uint16_t readReg16(uint8_t ucAddr);
+void writeReg16(uint8_t ucAddr, uint16_t usValue);
+void writeReg(uint8_t ucAddr, uint8_t ucValue);
+void readMulti(uint8_t ucAddr, uint8_t *pBuf, uint16_t iCount);
+void writeMulti(uint8_t ucAddr, uint8_t *pBuf, uint16_t iCount);
+
 void delay(unsigned long delay);
 void init_WiiClassic();
 bool read_WiiClassic(uint8_t addr);

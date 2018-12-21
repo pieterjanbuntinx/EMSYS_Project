@@ -60,6 +60,23 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	uprintf("Started reading range data...\r\n");
 
-	init_WiiClassic();
-	read_WiiClassic(0);
+	//init_WiiClassic();
+	//read_WiiClassic(0);
+
+	//uint8_t bytes[] = { 0xFF, 0xFA, 0x12, 0xAB };
+	//uint8_t *bytes2;
+    set_clock_divider(CDIV_10kHz);
+
+	writeReg(0xF0, 0x55);
+    writeReg(0xFB, 0x00);
+
+	uint8_t byte[] = {0};
+	uint8_t* bytes;
+
+	while (1) {
+		delay(100000);
+		set_pin(&gpio[LED_pin]);
+		read_WiiClassic(0);
+		clear_pin(&gpio[LED_pin]);
+	}
 }
