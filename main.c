@@ -11,16 +11,16 @@ interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 #include "rpi-armtimer.h"
 #include <stdint.h>
 #include "WiiClassic.h"
+#include "WS2812B.h"
 
-#define ADDRESS_DEFAULT 0b0101001 // VL53L0X default address
+#define TX_pin 14
+#define RX_pin 15
 
-const int TX_pin = 14;
-const int RX_pin = 15;
+#define SDA_pin 2
+#define SCL_pin 3
 
-const int SDA_pin = 2;
-const int SCL_pin = 3;
-
-const int LED_pin = 18;
+#define LED_pin 23
+#define WS2812B_pin 18 
 
 void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 {
@@ -36,6 +36,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	set_GPIO_alterfunc(&gpio[SCL_pin], 4);
 
 	set_GPIO_output(&gpio[LED_pin]);
+	set_GPIO_output(&gpio[WS2812B_pin]);
 
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_UART_IRQ;	
 
@@ -46,37 +47,35 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	_unlock();
 
 	/* Setup the system timer interrupt */
-    /* Timer frequency = Clk/256 * 0x400 */
-    RPI_GetArmTimer()->Load = 0x400;
+    /* Timer frequency = Clk/CTRL_PRESCALE * 0x400 */
+    RPI_GetArmTimer()->Load = 0xFFFFFFFF;
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =
             RPI_ARMTIMER_CTRL_23BIT |
             RPI_ARMTIMER_CTRL_ENABLE |
             RPI_ARMTIMER_CTRL_INT_ENABLE |
-            RPI_ARMTIMER_CTRL_PRESCALE_256;
-
+            RPI_ARMTIMER_CTRL_PRESCALE_1;
 	i2c_init();
 
 	uprintf("Started reading range data...\r\n");
 
-	//init_WiiClassic();
-	//read_WiiClassic(0);
+	init_WiiClassic();
 
-	//uint8_t bytes[] = { 0xFF, 0xFA, 0x12, 0xAB };
-	//uint8_t *bytes2;
-    set_clock_divider(CDIV_10kHz);
+	init_ws2812b(WS2812B_pin, 3);
 
-	writeReg(0xF0, 0x55);
-    writeReg(0xFB, 0x00);
-
-	uint8_t byte[] = {0};
-	uint8_t* bytes;
-
+	ws2812b_setColor(0xFF, 0, 0, 0);
+	ws2812b_setColor(0, 0xFF, 0, 1);
+	ws2812b_setColor(0, 0, 0xFF, 2);
+	
 	while (1) {
-		delay(100000);
-		set_pin(&gpio[LED_pin]);
-		read_WiiClassic(0);
-		clear_pin(&gpio[LED_pin]);
+		/**read_WiiClassic(0);
+		print_WiiClassic();*/
+		ws2812b_update(); 
+		micros(2000);
+		/**set_pin(&gpio[WS2812B_pin]);
+		micros(1000);
+		clear_pin(&gpio[WS2812B_pin]);
+		micros(1000);*/
 	}
 }

@@ -10,6 +10,7 @@
 #define RPI_ARMTIMER_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "defines.h"
 
 /** @brief See the documentation for the ARM side timer (Section 14 of the
@@ -109,7 +110,6 @@ typedef struct {
 
 
 extern rpi_arm_timer_t* RPI_GetArmTimer(void);
-extern void RPI_ArmTimerInit(void);
-extern uint32_t RPI_getRAWIRQ();
+void micros(uint32_t delay);
 
 #endif

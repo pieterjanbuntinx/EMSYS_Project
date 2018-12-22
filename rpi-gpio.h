@@ -32,6 +32,8 @@ typedef volatile struct gpio{
 GPIO gpio[27];
 
 extern void gpio_init();
+extern void set_GPIO_pullup(GPIO *up);
+extern void clear_GPIO_pullup_down();
 extern void set_GPIO_alterfunc(GPIO *up, int n);
 extern void set_GPIO_output(GPIO *up);
 extern void set_GPIO_input(GPIO *up);
@@ -39,6 +41,7 @@ extern void set_pin(GPIO *up);
 extern void clear_pin(GPIO *up);
 extern void enable_edge_detect(GPIO *up);
 extern int edge_detect(GPIO *up);
+
 
 static void clear_detect(GPIO *up);
 static int getBit(int bitNumber, int reg);

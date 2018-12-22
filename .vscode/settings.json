@@ -12,6 +12,8 @@
         "rpi-armtimer.h": "c",
         "vl53l0x.h": "c",
         "ws2812b.h": "c",
-        "wiiclassic.h": "c"
+        "wiiclassic.h": "c",
+        "defines.h": "c",
+        "string.h": "c"
     }
 }

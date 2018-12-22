@@ -19,6 +19,7 @@ CMakeFiles/main.dir/WiiClassic.c.obj: ../rpi-uart.h
 
 CMakeFiles/main.dir/main-cstartup.c.obj: ../main-cstartup.c
 
+CMakeFiles/main.dir/main.c.obj: ../WS2812B.h
 CMakeFiles/main.dir/main.c.obj: ../WS2812b.h
 CMakeFiles/main.dir/main.c.obj: ../WiiClassic.h
 CMakeFiles/main.dir/main.c.obj: ../defines.h

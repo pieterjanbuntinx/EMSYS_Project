@@ -2,8 +2,10 @@
 #include "rpi-i2c.h"
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "defines.h"
 #include "rpi-armtimer.h"
+#include <string.h>
 
 #define WII_I2C_ADDR	0x52
 #define CDIV_10kHz 15000
@@ -60,8 +62,8 @@ void writeReg(uint8_t ucAddr, uint8_t ucValue);
 void readMulti(uint8_t ucAddr, uint8_t *pBuf, uint16_t iCount);
 void writeMulti(uint8_t ucAddr, uint8_t *pBuf, uint16_t iCount);
 
-void delay(unsigned long delay);
 void init_WiiClassic();
-bool read_WiiClassic(uint8_t addr);
+void read_WiiClassic(uint8_t addr);
+void print_WiiClassic();
 
 

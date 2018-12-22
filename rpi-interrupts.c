@@ -97,7 +97,6 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector(void)
 {
     //if statement for checking if bit 25 is set
     uart_handler(&uart);
-    ws2812b_handler();
 }
 
 

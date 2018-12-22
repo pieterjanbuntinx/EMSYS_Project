@@ -6,7 +6,6 @@
     Please see the LICENSE file included with this software.
 */
 
-#include <stdint.h>
 #include "rpi-armtimer.h"
 
 static rpi_arm_timer_t* rpiArmTimer = (rpi_arm_timer_t*)RPI_ARMTIMER_BASE;
@@ -16,11 +15,14 @@ rpi_arm_timer_t* RPI_GetArmTimer(void)
     return rpiArmTimer;
 }
 
-void RPI_ArmTimerInit(void)
-{
+void micros(uint32_t delay) {
+    uint32_t previousValue = (*rpiArmTimer).Value;
+    
+    while (delay > previousValue) {
+        while ((*rpiArmTimer).Value > 0);
+        delay -= previousValue;
+        previousValue = (*rpiArmTimer).Value;
+    }
 
-}
-
-uint32_t RPI_getRAWIRQ() {
-    return (*rpiArmTimer).RAWIRQ;
+    while (previousValue - (*rpiArmTimer).Value < delay);
 }
