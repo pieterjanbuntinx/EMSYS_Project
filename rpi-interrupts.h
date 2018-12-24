@@ -36,6 +36,7 @@
 #include "defines.h"
 #include "rpi-uart.h"
 #include "rpi-pwm.h"
+#include "rpi-i2c.h"
 #include "WS2812b.h"
 #include "rpi-armtimer.h"
 

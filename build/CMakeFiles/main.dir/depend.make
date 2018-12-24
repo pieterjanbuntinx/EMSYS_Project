@@ -49,6 +49,7 @@ CMakeFiles/main.dir/rpi-interrupts.c.obj: ../WS2812b.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../defines.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-gpio.h
+CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-i2c.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.c
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-pwm.h

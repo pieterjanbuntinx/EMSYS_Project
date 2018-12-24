@@ -41,7 +41,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_UART_IRQ;	
 	//RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
-	//RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_I2C_IRQ;
+	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_I2C_IRQ;
 
 	/* Initialize uart and allow uart to send interrupts */
 	uart_init();				// initialize UARTs
@@ -74,6 +74,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	while (1) {
 		micros(10000);
 		read_WiiClassic(0);
+		micros(10000);
 		print_WiiClassic();
 		//ws2812b_update();
 		//test_pwm();

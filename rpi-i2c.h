@@ -8,14 +8,14 @@ static volatile unsigned int* i2c_reg;
 
 typedef struct 
 {
-    uint32_t C;
-    uint32_t S;
-    uint32_t DLEN;
-    uint32_t A;
-    uint32_t FIFO;
-    uint32_t DIV;
-    uint32_t DEL;
-    uint32_t CLKT;
+    volatile uint32_t C;
+    volatile uint32_t S;
+    volatile uint32_t DLEN;
+    volatile uint32_t A;
+    volatile uint32_t FIFO;
+    volatile uint32_t DIV;
+    volatile uint32_t DEL;
+    volatile uint32_t CLKT;
 } rpi_i2c_controller_t;
 
 #define I2C_C_I2CEN	(1 << 15)
@@ -55,5 +55,8 @@ uint32_t read_status_reg();
 
 void read_bytes(uint8_t , uint8_t *, uint16_t );
 void write_bytes(uint8_t , uint8_t *, uint16_t );
+void read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
+void write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
+void rpi_interrupt_handler();
 
 #endif

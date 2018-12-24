@@ -141,6 +141,8 @@ rpi-uart.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 rpi-pwm.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
+rpi-i2c.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
 WS2812b.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
 rpi-armtimer.h
