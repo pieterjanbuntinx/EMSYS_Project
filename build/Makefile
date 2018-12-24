@@ -348,6 +348,33 @@ rpi-interrupts.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-interrupts.c.s
 .PHONY : rpi-interrupts.c.s
 
+rpi-pwm.obj: rpi-pwm.c.obj
+
+.PHONY : rpi-pwm.obj
+
+# target to build an object file
+rpi-pwm.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-pwm.c.obj
+.PHONY : rpi-pwm.c.obj
+
+rpi-pwm.i: rpi-pwm.c.i
+
+.PHONY : rpi-pwm.i
+
+# target to preprocess a source file
+rpi-pwm.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-pwm.c.i
+.PHONY : rpi-pwm.c.i
+
+rpi-pwm.s: rpi-pwm.c.s
+
+.PHONY : rpi-pwm.s
+
+# target to generate assembly for a file
+rpi-pwm.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rpi-pwm.c.s
+.PHONY : rpi-pwm.c.s
+
 rpi-uart.obj: rpi-uart.c.obj
 
 .PHONY : rpi-uart.obj
@@ -409,6 +436,9 @@ help:
 	@echo "... rpi-interrupts.obj"
 	@echo "... rpi-interrupts.i"
 	@echo "... rpi-interrupts.s"
+	@echo "... rpi-pwm.obj"
+	@echo "... rpi-pwm.i"
+	@echo "... rpi-pwm.s"
 	@echo "... rpi-uart.obj"
 	@echo "... rpi-uart.i"
 	@echo "... rpi-uart.s"

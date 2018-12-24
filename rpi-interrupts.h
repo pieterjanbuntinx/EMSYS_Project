@@ -32,9 +32,10 @@
 #define RPI_INTERRUPTS_H
 
 #include <stdint.h>
-
+#include <stdbool.h>
 #include "defines.h"
 #include "rpi-uart.h"
+#include "rpi-pwm.h"
 #include "WS2812b.h"
 #include "rpi-armtimer.h"
 

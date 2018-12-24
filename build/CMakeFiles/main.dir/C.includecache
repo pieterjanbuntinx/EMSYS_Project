@@ -19,6 +19,8 @@ rpi-armtimer.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
 rpi-uart.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+rpi-pwm.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
 stdint.h
 -
 stdbool.h
@@ -35,6 +37,8 @@ rpi-armtimer.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
 rpi-uart.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+rpi-pwm.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
 stdint.h
 -
 stdbool.h
@@ -85,6 +89,8 @@ WiiClassic.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
 WS2812B.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+rpi-pwm.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
 
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c
 rpi-armtimer.h
@@ -121,26 +127,44 @@ stdbool.h
 -
 
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.c
-stdint.h
--
-stdbool.h
--
 rpi-interrupts.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
-rpi-uart.h
-/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
 stdint.h
+-
+stdbool.h
 -
 defines.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
 rpi-uart.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+rpi-pwm.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
 WS2812b.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
 rpi-armtimer.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
+
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.c
+rpi-pwm.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
+
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
+defines.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
+rpi-gpio.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
+rpi-armtimer.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
+rpi-uart.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+stdint.h
+-
+stdbool.h
+-
+stdlib.h
+-
 
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.c
 rpi-uart.h

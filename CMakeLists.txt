@@ -63,7 +63,9 @@ add_executable( ${NAME}
     WS2812B.h
     WS2812B.c
     WiiClassic.h
-    WiiClassic.c )
+    WiiClassic.c
+    rpi-pwm.h
+    rpi-pwm.c )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD

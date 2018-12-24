@@ -15,14 +15,18 @@ rpi_arm_timer_t* RPI_GetArmTimer(void)
     return rpiArmTimer;
 }
 
+uint32_t RPI_GetTimerValue() {
+    return (*rpiArmTimer).Value;
+}
+
 void micros(uint32_t delay) {
-    uint32_t previousValue = (*rpiArmTimer).Value;
+    uint32_t previousValue = RPI_GetTimerValue();
     
     while (delay > previousValue) {
-        while ((*rpiArmTimer).Value > 0);
+        while (RPI_GetTimerValue() > 0);
         delay -= previousValue;
-        previousValue = (*rpiArmTimer).Value;
+        previousValue = RPI_GetTimerValue();
     }
 
-    while (previousValue - (*rpiArmTimer).Value < delay);
+    while (previousValue - RPI_GetTimerValue() < delay);
 }

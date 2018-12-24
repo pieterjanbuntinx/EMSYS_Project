@@ -138,14 +138,13 @@ int uprintx(UART *up, int x)
   uputc(up, ' ');
 }
 
-int urpu(UART *up, int x)
-{
+int urpu(UART *up, int x) {
   char c;
-  if (x){
-     c = tab[x % 10];
-     urpu(up, x / 10);
+  c = tab[x % 10];
+  if (x > 9) {
+    urpu(up, x / 10);
   }
-  uputc(up, c);
+  return uputc(up, c);
 }
 
 int uprintu(UART *up, int x)

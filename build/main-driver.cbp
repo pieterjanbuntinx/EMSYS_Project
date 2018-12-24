@@ -124,6 +124,12 @@
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h">
 			<Option target="main"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h">
+			<Option target="main"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.c">
 			<Option target="main"/>
 		</Unit>

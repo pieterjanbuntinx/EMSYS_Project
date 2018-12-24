@@ -32,6 +32,17 @@
 #define RPI_ARMTIMER_CTRL_ENABLE        ( 1 << 7 )
 #define RPI_ARMTIMER_CTRL_DISABLE       ( 0 << 7 )
 
+/** enable free running counter */
+#define RPI_ARMTIMER_CTRL_FREE_RUNNING_ENABLE   (1 << 9)
+#define RPI_ARMTIMER_CTRL_FREE_RUNNING_DISABLE  (0 << 9)
+
+/** free running counter prescaler */
+#define RPI_ARMTIMER_CTRL_FREE_RUNNING_PRESCALE_1   (1 << 16)
+
+/** set predivider register */
+#define RPI_ARMTIMER_PREDIVIDE_SET_1    0x1
+
+
 
 /** @brief Section 14.2 of the BCM2835 Peripherals documentation details
     the register layout for the ARM side timer */
@@ -110,6 +121,8 @@ typedef struct {
 
 
 extern rpi_arm_timer_t* RPI_GetArmTimer(void);
+uint32_t RPI_GetTimerValue();
+uint32_t RPI_GetFreeRunningCounter();
 void micros(uint32_t delay);
 
 #endif

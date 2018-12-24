@@ -85,10 +85,10 @@ void writeRegList(uint8_t *ucList, uint16_t no_pairs)
 
 void init_WiiClassic() {
     // Initialise with unencrypted data communication
-    set_clock_divider(CDIV_10kHz);
+    RPI_GetI2CController()->CLKT = CDIV_10kHz & 0xFFFF;
     writeReg(0xF0, 0x55);
     writeReg(0xFB, 0x00);
-    micros(100*1000);
+    micros(1000);
 }
 
 void read_WiiClassic(uint8_t addr) {
@@ -96,7 +96,7 @@ void read_WiiClassic(uint8_t addr) {
     uint8_t *bytes;
 
     write_bytes(WII_I2C_ADDR, byte, 1);
-    micros(100*1000);
+    micros(1000);
     read_bytes(WII_I2C_ADDR, bytes, dataArraySize);
 
     RX = ((bytes[0] & 0xC0) >> 3)  | ((bytes[1] & 0xC0) >> 5) | ((bytes[2] & 0x80) >> 7);
@@ -121,6 +121,6 @@ void read_WiiClassic(uint8_t addr) {
 
 void print_WiiClassic() {
     uprintf("RX: %d, RY: %d, LX: %d, LY: %d, LT: %d, RT: %d, DPAD L: %d, R: %d, U: %d, D: %d, TRIGGER L: %d, R: %d \n\r", RX, RY, LX, LY, LT, RT, DPAD[0], DPAD[1], DPAD[2], DPAD[3], TRIGGER_CLICK[0], TRIGGER_CLICK[1]);
-    micros(100*1000);
+    micros(1000);
     uprintf("BUTTONS ZR: %d, ZL: %d, A: %d, B: %d, X: %d, Y: %d, +: %d, H: %d, -: %d\n\r", BUTTONS[0], BUTTONS[1], BUTTONS[2], BUTTONS[3], BUTTONS[4], BUTTONS[5], BUTTONS[6], BUTTONS[7], BUTTONS[8]);
 }

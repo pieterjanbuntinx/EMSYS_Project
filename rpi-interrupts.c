@@ -1,9 +1,8 @@
 
-#include <stdint.h>
-#include <stdbool.h>
+
 
 #include "rpi-interrupts.h"
-#include "rpi-uart.h"
+
 
 /** @brief The BCM2835 Interupt controller peripheral at it's base address */
 static rpi_irq_controller_t* rpiIRQController =
@@ -85,6 +84,7 @@ void __attribute__((interrupt("ABORT"))) data_abort_vector(void)
 }
 
 
+volatile bool pin_status = false;
 /**
     @brief The IRQ Interrupt handler
 

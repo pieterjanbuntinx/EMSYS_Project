@@ -12,6 +12,7 @@ interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 #include <stdint.h>
 #include "WiiClassic.h"
 #include "WS2812B.h"
+#include "rpi-pwm.h"
 
 #define TX_pin 14
 #define RX_pin 15
@@ -35,10 +36,12 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	set_GPIO_alterfunc(&gpio[SDA_pin], 4);
 	set_GPIO_alterfunc(&gpio[SCL_pin], 4);
 
+	set_GPIO_alterfunc(&gpio[WS2812B_pin], 0b010);
 	set_GPIO_output(&gpio[LED_pin]);
-	set_GPIO_output(&gpio[WS2812B_pin]);
-
+	
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_UART_IRQ;	
+	//RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
+	//RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_I2C_IRQ;
 
 	/* Initialize uart and allow uart to send interrupts */
 	uart_init();				// initialize UARTs
@@ -47,8 +50,8 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	_unlock();
 
 	/* Setup the system timer interrupt */
-    /* Timer frequency = Clk/CTRL_PRESCALE * 0x400 */
-    RPI_GetArmTimer()->Load = 0xFFFFFFFF;
+    /* Timer frequency = Clk/CTRL_PRESCALE * Load */
+    RPI_GetArmTimer()->Load = 1;
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =
@@ -56,26 +59,23 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
             RPI_ARMTIMER_CTRL_ENABLE |
             RPI_ARMTIMER_CTRL_INT_ENABLE |
             RPI_ARMTIMER_CTRL_PRESCALE_1;
-	i2c_init();
+			
 
 	uprintf("Started reading range data...\r\n");
 
 	init_WiiClassic();
 
-	init_ws2812b(WS2812B_pin, 3);
+	/**init_ws2812b(WS2812B_pin, 3);
 
 	ws2812b_setColor(0xFF, 0, 0, 0);
 	ws2812b_setColor(0, 0xFF, 0, 1);
-	ws2812b_setColor(0, 0, 0xFF, 2);
-	
+	ws2812b_setColor(0, 0, 0xFF, 2);*/
+
 	while (1) {
-		/**read_WiiClassic(0);
-		print_WiiClassic();*/
-		ws2812b_update(); 
-		micros(2000);
-		/**set_pin(&gpio[WS2812B_pin]);
-		micros(1000);
-		clear_pin(&gpio[WS2812B_pin]);
-		micros(1000);*/
+		micros(10000);
+		read_WiiClassic(0);
+		print_WiiClassic();
+		//ws2812b_update();
+		//test_pwm();
 	}
 }

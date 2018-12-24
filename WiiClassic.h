@@ -1,3 +1,6 @@
+#ifndef WIICLASSIC_H
+#define WIICLASSIC_H
+
 #include "rpi-uart.h"
 #include "rpi-i2c.h"
 #include <stdint.h>
@@ -66,4 +69,4 @@ void init_WiiClassic();
 void read_WiiClassic(uint8_t addr);
 void print_WiiClassic();
 
-
+#endif

@@ -26,6 +26,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.c" "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles/main.dir/rpi-gpio.c.obj"
   "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.c" "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles/main.dir/rpi-i2c.c.obj"
   "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.c" "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles/main.dir/rpi-interrupts.c.obj"
+  "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.c" "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles/main.dir/rpi-pwm.c.obj"
   "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.c" "/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles/main.dir/rpi-uart.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

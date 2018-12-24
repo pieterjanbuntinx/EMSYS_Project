@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/rpi-armtimer.c.obj"
   "CMakeFiles/main.dir/WS2812B.c.obj"
   "CMakeFiles/main.dir/WiiClassic.c.obj"
+  "CMakeFiles/main.dir/rpi-pwm.c.obj"
   "main.pdb"
   "main"
 )

@@ -88,36 +88,14 @@ typedef unsigned int   u32;
 
 // I2C
 #define I2C_BASE 0x20804000
-#define I2C_CONTROL 0
+/**#define I2C_CONTROL 0
 #define I2C_STATUS 1
 #define I2C_DLEN 2
 #define I2C_SLAVE_ADDRESS 3
 #define DATA_FIFO 4
 #define CLOCK_DIVIDER 5
 #define DATA_DELAY 6
-#define CLOCK_STRETCH_TIMEOUT 7
-
-#define I2C_C_I2CEN    (1 << 15)
-#define I2C_C_INTR    (1 << 10)
-#define I2C_C_INTT    (1 << 9)
-#define I2C_C_INTD    (1 << 8)
-#define I2C_C_ST    (1 << 7)
-#define I2C_C_CLEAR    (1 << 4)
-#define I2C_C_READ    1
-
-#define START_READ    I2C_C_I2CEN|I2C_C_ST|I2C_C_CLEAR|I2C_C_READ
-#define START_WRITE    I2C_C_I2CEN|I2C_C_ST
-
-#define I2C_S_CLKT    (1 << 9)
-#define I2C_S_ERR    (1 << 8)
-#define I2C_S_RXF    (1 << 7)
-#define I2C_S_TXE    (1 << 6)
-#define I2C_S_RXD    (1 << 5)
-#define I2C_S_TXD    (1 << 4)
-#define I2C_S_RXR    (1 << 3)
-#define I2C_S_TXW    (1 << 2)
-#define I2C_S_DONE    (1 << 1)
-#define I2C_S_TA    1
+#define CLOCK_STRETCH_TIMEOUT 7*/
 
 // Interrupt register
 #define IRQ2 0x85

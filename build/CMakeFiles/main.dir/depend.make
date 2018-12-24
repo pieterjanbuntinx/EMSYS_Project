@@ -8,6 +8,7 @@ CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../defines.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-gpio.h
+CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-pwm.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../rpi-uart.h
 
 CMakeFiles/main.dir/WiiClassic.c.obj: ../WiiClassic.c
@@ -28,6 +29,7 @@ CMakeFiles/main.dir/main.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-gpio.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-i2c.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-interrupts.h
+CMakeFiles/main.dir/main.c.obj: ../rpi-pwm.h
 CMakeFiles/main.dir/main.c.obj: ../rpi-uart.h
 
 CMakeFiles/main.dir/rpi-armtimer.c.obj: ../defines.h
@@ -49,7 +51,15 @@ CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-armtimer.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-gpio.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.c
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-interrupts.h
+CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-pwm.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj: ../rpi-uart.h
+
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../defines.h
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../rpi-armtimer.h
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../rpi-gpio.h
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../rpi-pwm.c
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../rpi-pwm.h
+CMakeFiles/main.dir/rpi-pwm.c.obj: ../rpi-uart.h
 
 CMakeFiles/main.dir/rpi-uart.c.obj: ../defines.h
 CMakeFiles/main.dir/rpi-uart.c.obj: ../rpi-gpio.h
