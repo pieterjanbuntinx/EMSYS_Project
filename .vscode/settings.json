@@ -15,6 +15,7 @@
         "wiiclassic.h": "c",
         "defines.h": "c",
         "string.h": "c",
-        "rpi-systemtimer.h": "c"
+        "rpi-systemtimer.h": "c",
+        "rpi-pwm.h": "c"
     }
 }

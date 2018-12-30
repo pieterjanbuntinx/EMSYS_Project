@@ -1,14 +1,6 @@
 #include "WiiClassic.h"
 
-uint8_t RX;
-uint8_t RY;
-uint8_t LX;
-uint8_t LY;
-uint8_t LT;
-uint8_t RT;
-uint8_t DPAD[4];
-uint8_t TRIGGER_CLICK[2];
-uint8_t BUTTONS[9];
+static void decode_WiiClassic();
 
 //
 // Read a pair of registers as a 16-bit value
@@ -19,7 +11,7 @@ uint16_t readReg16(uint8_t ucAddr)
     write_bytes(WII_I2C_ADDR, wbytes, 1);
     uint8_t *rbytes;
     read_bytes(WII_I2C_ADDR, rbytes, 2);
-    return (rbytes[1]) | (rbytes[0]);
+    return ((rbytes[1])<<8) | (rbytes[0]);
 } 
 
 //
@@ -84,35 +76,48 @@ void writeRegList(uint8_t *ucList, uint16_t no_pairs)
 } 
 
 void init_WiiClassic() {
-    // Initialise with unencrypted data communication
+    // Initialise to enable unencrypted data communication
     RPI_GetI2CController()->CLKT = CDIV_10kHz & 0xFFFF;
     writeReg(0xF0, 0x55);
+    micros(1000);
     writeReg(0xFB, 0x00);
     micros(1000);
+    wii_classic_update = true;
 }
 
 void read_WiiClassic(uint8_t addr) {
     uint8_t byte[] = { addr };
-    uint8_t *bytes;
 
     write_bytes(WII_I2C_ADDR, byte, 1);
     micros(1000);
-    read_bytes(WII_I2C_ADDR, bytes, dataArraySize);
+    read_bytes(WII_I2C_ADDR, data, dataArraySize);
+    decode_WiiClassic();
+}
 
-    RX = ((bytes[0] & 0xC0) >> 3)  | ((bytes[1] & 0xC0) >> 5) | ((bytes[2] & 0x80) >> 7);
-    RY = (bytes[2] & 0x1F);
+int read_WiiClassic_int(uint8_t addr) {
+    uint8_t byte[] = { addr };
 
-    LX = (bytes[0] & 0x3F);
-    LY = (bytes[1] & 0x3F);
+    write_bytes_int(WII_I2C_ADDR, byte, 1);
+    while(read_bytes_int(WII_I2C_ADDR, data, dataArraySize));
+    decode_WiiClassic();
+    return true;
+}
 
-    LT = ((bytes[2] >> 2) & 0x18) | ((bytes[1] >> 5) & 0x07);
-    RT = (bytes[3] & 0x1F);
+static void decode_WiiClassic() {
+    RX = ((data[0] & 0xC0) >> 3)  | ((data[1] & 0xC0) >> 5) | ((data[2] & 0x80) >> 7);
+    RY = (data[2] & 0x1F);
 
-    const uint8_t _DPAD[4] = {((bytes[5] & 0b10) >> 1), ((bytes[4] & 0x80) >> 7),  ((bytes[5] & 0b1) >> 0), ((bytes[4] & 0x40) >> 6)}; // BD{L,R,U,D}
+    LX = (data[0] & 0x3F);
+    LY = (data[1] & 0x3F);
 
-    const uint8_t _TRIGGER_CLICK[2] = {((bytes[4] & 0x20) >> 5), ((bytes[4] & 0b10) >> 1)}; // B{LT,RT}
+    LT = ((data[2] >> 2) & 0x18) | ((data[1] >> 5) & 0x07);
+    RT = (data[3] & 0x1F);
 
-    const uint8_t _BUTTONS[9] = {((bytes[5] & 0b100) >> 2), ((bytes[5] & 0x80) >> 7), ((bytes[5] & 0x10) >> 4), ((bytes[5] & 0x40) >> 6), ((bytes[5] & 0x8) >> 3), ((bytes[5] & 0x20) >> 5), ((bytes[4] & 0x4) >> 2), ((bytes[4] & 0x8) >> 3), ((bytes[4] & 0x10) >> 4)}; // B{ZR,ZL,A,B,X,Y,+,H,-}   
+    uint8_t _DPAD[4] = {((data[5] & 0b10) >> 1), ((data[4] & 0x80) >> 7),  ((data[5] & 0b1) >> 0), ((data[4] & 0x40) >> 6)}; // BD{L,R,U,D}
+
+    uint8_t _TRIGGER_CLICK[2] = {((data[4] & 0x20) >> 5), ((data[4] & 0b10) >> 1)}; // B{LT,RT}
+
+    uint8_t _BUTTONS[9] = {((data[5] & 0b100) >> 2), ((data[5] & 0x80) >> 7), ((data[5] & 0x10) >> 4), ((data[5] & 0x40) >> 6), ((data[5] & 0x8) >> 3), ((data[5] & 0x20) >> 5), ((data[4] & 0x4) >> 2), ((data[4] & 0x8) >> 3), ((data[4] & 0x10) >> 4)}; // B{ZR,ZL,A,B,X,Y,+,H,-}   
 
     memcpy(DPAD, _DPAD, sizeof(_DPAD));
     memcpy(TRIGGER_CLICK, _TRIGGER_CLICK, sizeof(_TRIGGER_CLICK));
@@ -120,7 +125,7 @@ void read_WiiClassic(uint8_t addr) {
 }
 
 void print_WiiClassic() {
-    uprintf("RX: %d, RY: %d, LX: %d, LY: %d, LT: %d, RT: %d, DPAD L: %d, R: %d, U: %d, D: %d, TRIGGER L: %d, R: %d \n\r", RX, RY, LX, LY, LT, RT, DPAD[0], DPAD[1], DPAD[2], DPAD[3], TRIGGER_CLICK[0], TRIGGER_CLICK[1]);
-    micros(1000);
+    uprintf("RX: %d, RY: %d, LX: %d, LY: %d, LT: %d, RT: %d\n\rDPAD L: %d, R: %d, U: %d, D: %d, TRIGGER L: %d, R: %d\n\r", RX, RY, LX, LY, LT, RT, DPAD[0], DPAD[1], DPAD[2], DPAD[3], TRIGGER_CLICK[0], TRIGGER_CLICK[1]);
+    micros(10*1000);
     uprintf("BUTTONS ZR: %d, ZL: %d, A: %d, B: %d, X: %d, Y: %d, +: %d, H: %d, -: %d\n\r", BUTTONS[0], BUTTONS[1], BUTTONS[2], BUTTONS[3], BUTTONS[4], BUTTONS[5], BUTTONS[6], BUTTONS[7], BUTTONS[8]);
 }

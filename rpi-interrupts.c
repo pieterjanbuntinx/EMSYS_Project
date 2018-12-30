@@ -95,7 +95,8 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector(void)
 {
     //if statement for checking if bit 25 is set
     uart_handler(&uart);
-    rpi_interrupt_handler();
+    i2c_interrupt_handler();
+    armtimer_interrupt_handler();
 }
 
 

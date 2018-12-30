@@ -12,6 +12,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "defines.h"
+#include "rpi-interrupts.h"
+#include "WS2812B.h"
+#include "WiiClassic.h"
 
 /** @brief See the documentation for the ARM side timer (Section 14 of the
     BCM2835 Peripherals PDF) */
@@ -124,5 +127,7 @@ extern rpi_arm_timer_t* RPI_GetArmTimer(void);
 uint32_t RPI_GetTimerValue();
 uint32_t RPI_GetFreeRunningCounter();
 void micros(uint32_t delay);
+void enable_timer(uint32_t delay);
+void armtimer_interrupt_handler();
 
 #endif

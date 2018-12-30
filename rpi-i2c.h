@@ -55,8 +55,8 @@ uint32_t read_status_reg();
 
 void read_bytes(uint8_t , uint8_t *, uint16_t );
 void write_bytes(uint8_t , uint8_t *, uint16_t );
-void read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
-void write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
-void rpi_interrupt_handler();
+int read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
+int write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes);
+void i2c_interrupt_handler();
 
 #endif

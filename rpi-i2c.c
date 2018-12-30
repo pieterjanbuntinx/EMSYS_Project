@@ -91,8 +91,8 @@ volatile uint8_t *bytes_to_read_write;
 volatile uint16_t no_bytes_left;
 volatile bool busy;
 
-void read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
-    if (busy) return;
+int read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
+    if (busy) return false;
 
     busy = true;
 
@@ -106,10 +106,11 @@ void read_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
     no_bytes_left = no_bytes;
     bytes_to_read_write = bytes;
     _unlock();
+    return true;
 }
 
-void write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
-    if (busy) return;
+int write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
+    if (busy) return false;
     busy = true;
     
     _lock();
@@ -120,14 +121,16 @@ void write_bytes_int(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
     if (no_bytes > 16) {
         no_bytes_left = no_bytes - 16;   
         bytes_to_read_write = bytes;
-    }
+    } else 
+        no_bytes_left = 0;
     
     i2c_controller->DLEN = no_bytes & 0xFFFF;
     i2c_controller->C = START_WRITE;
     _unlock();
+    return true;
 }
 
-void rpi_interrupt_handler() {
+void i2c_interrupt_handler() {
     if (i2c_controller->S & I2C_S_RXR) {
         uint16_t i;
         for (i=0; i<16; i++) {

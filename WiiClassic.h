@@ -58,6 +58,19 @@
 #define buttonZRBytes	    WII_BYTE5,WII_BIT2,true
 #define buttonZLBytes	    WII_BYTE5,WII_BIT7,true
 
+bool wii_classic_update;
+uint8_t RX;
+uint8_t RY;
+uint8_t LX;
+uint8_t LY;
+uint8_t LT;
+uint8_t RT;
+uint8_t DPAD[4];
+uint8_t TRIGGER_CLICK[2];
+uint8_t BUTTONS[9];
+
+uint8_t data[6];
+
 uint8_t readReg(uint8_t ucAddr);
 uint16_t readReg16(uint8_t ucAddr);
 void writeReg16(uint8_t ucAddr, uint16_t usValue);
@@ -67,6 +80,7 @@ void writeMulti(uint8_t ucAddr, uint8_t *pBuf, uint16_t iCount);
 
 void init_WiiClassic();
 void read_WiiClassic(uint8_t addr);
+int read_WiiClassic_int(uint8_t addr);
 void print_WiiClassic();
 
 #endif

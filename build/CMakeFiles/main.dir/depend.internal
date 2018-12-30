@@ -6,17 +6,26 @@ CMakeFiles/main.dir/main-start.s.obj
 CMakeFiles/main.dir/WS2812B.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.c
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/WiiClassic.c.obj
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.c
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/main-cstartup.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/main-cstartup.c
@@ -33,9 +42,17 @@ CMakeFiles/main.dir/main.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/rpi-armtimer.c.obj
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.c
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/rpi-gpio.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.c
@@ -46,7 +63,9 @@ CMakeFiles/main.dir/rpi-i2c.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/rpi-interrupts.c.obj
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
@@ -56,9 +75,14 @@ CMakeFiles/main.dir/rpi-interrupts.c.obj
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
 CMakeFiles/main.dir/rpi-pwm.c.obj
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812b.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/defines.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-i2c.h
+ /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-interrupts.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.c
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-pwm.h
  /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h

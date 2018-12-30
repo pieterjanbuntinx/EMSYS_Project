@@ -28,7 +28,7 @@ CMAKE_ASM_COMPILER_AR:FILEPATH=/usr/bin/arm-none-eabi-gcc-ar
 // for the GCC compiler
 CMAKE_ASM_COMPILER_RANLIB:FILEPATH=/usr/bin/arm-none-eabi-gcc-ranlib
 
-CMAKE_ASM_FLAGS:STRING= -mfpu=vfp -mfloat-abi=softfp -march=armv6zk -mtune=arm1176jzf-s
+CMAKE_ASM_FLAGS:STRING= -mfpu=vfp -mfloat-abi=soft -march=armv6zk -mtune=arm1176jzf-s
 
 //Flags used by the assembler during debug builds.
 CMAKE_ASM_FLAGS_DEBUG:STRING=-g
@@ -64,7 +64,7 @@ CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/arm-none-eabi-gcc-ar
 // for the GCC compiler
 CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/arm-none-eabi-gcc-ranlib
 
-CMAKE_C_FLAGS:STRING= -mfpu=vfp -mfloat-abi=softfp -march=armv6zk -mtune=arm1176jzf-s
+CMAKE_C_FLAGS:STRING= -mfpu=vfp -mfloat-abi=soft -march=armv6zk -mtune=arm1176jzf-s
 
 //Flags used by the compiler during debug builds.
 CMAKE_C_FLAGS_DEBUG:STRING=-g

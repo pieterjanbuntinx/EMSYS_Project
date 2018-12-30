@@ -30,3 +30,20 @@ void micros(uint32_t delay) {
 
     while (previousValue - RPI_GetTimerValue() < delay);
 }
+
+void enable_timer(uint32_t delay) {
+    RPI_GetArmTimer()->Control |= RPI_ARMTIMER_CTRL_INT_ENABLE;
+    RPI_GetArmTimer()->Load = delay;
+}
+
+void armtimer_interrupt_handler() {
+    if (RPI_GetArmTimer()->RAWIRQ & 1) {
+        RPI_GetArmTimer()->IRQClear = 1;
+        if (wii_classic_update) read_WiiClassic(0);
+        if (ws2812b_update_needed) {
+            ws2812b_turnoff();
+            ws2812b_enable_pixel(RY);
+            ws2812b_update();
+        }
+    }
+}

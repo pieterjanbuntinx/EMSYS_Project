@@ -36,11 +36,10 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 	set_GPIO_alterfunc(&gpio[SDA_pin], 4);
 	set_GPIO_alterfunc(&gpio[SCL_pin], 4);
 
-	set_GPIO_alterfunc(&gpio[WS2812B_pin], 0b010);
 	set_GPIO_output(&gpio[LED_pin]);
 	
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_UART_IRQ;	
-	//RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
+	RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
 	RPI_GetIrqController()->Enable_IRQs_2 = RPI_IRQ_2_ARM_I2C_IRQ;
 
 	/* Initialize uart and allow uart to send interrupts */
@@ -51,32 +50,35 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	/* Setup the system timer interrupt */
     /* Timer frequency = Clk/CTRL_PRESCALE * Load */
-    RPI_GetArmTimer()->Load = 1;
+    RPI_GetArmTimer()->Load = 0xFFFFFFFF;
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =
             RPI_ARMTIMER_CTRL_23BIT |
             RPI_ARMTIMER_CTRL_ENABLE |
-            RPI_ARMTIMER_CTRL_INT_ENABLE |
             RPI_ARMTIMER_CTRL_PRESCALE_1;
 			
 
 	uprintf("Started reading range data...\r\n");
+	micros(100*1000);
 
 	init_WiiClassic();
 
-	/**init_ws2812b(WS2812B_pin, 3);
+	init_pwm_hardware();
+	init_ws2812b(WS2812B_pin);
 
-	ws2812b_setColor(0xFF, 0, 0, 0);
-	ws2812b_setColor(0, 0xFF, 0, 1);
-	ws2812b_setColor(0, 0, 0xFF, 2);*/
+	uint16_t i;
+	for (i = 0; i<no_pixels; i++) {
+		ws2812b_setColor(0, 0, 255, 20, true, i);
+	}
+
+	ws2812b_update_needed=false;
+
+	
+	//enable_timer(10000); // refresh pixels and wiiclassic 100 times/s
 
 	while (1) {
+		ws2812b_update();
 		micros(10000);
-		read_WiiClassic(0);
-		micros(10000);
-		print_WiiClassic();
-		//ws2812b_update();
-		//test_pwm();
 	}
 }
