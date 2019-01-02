@@ -123,6 +123,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+Game.obj: Game.c.obj
+
+.PHONY : Game.obj
+
+# target to build an object file
+Game.c.obj:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Game.c.obj
+.PHONY : Game.c.obj
+
+Game.i: Game.c.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.c.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Game.c.i
+.PHONY : Game.c.i
+
+Game.s: Game.c.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.c.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Game.c.s
+.PHONY : Game.c.s
+
 WS2812B.obj: WS2812B.c.obj
 
 .PHONY : WS2812B.obj
@@ -411,6 +438,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... main"
 	@echo "... edit_cache"
+	@echo "... Game.obj"
+	@echo "... Game.i"
+	@echo "... Game.s"
 	@echo "... WS2812B.obj"
 	@echo "... WS2812B.i"
 	@echo "... WS2812B.s"

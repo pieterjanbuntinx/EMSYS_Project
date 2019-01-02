@@ -69,15 +69,17 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
 
 	uint16_t i;
 	for (i = 0; i<no_pixels; i++) {
-		ws2812b_setColor(0, 0, 255, 20, true, i);
+		ws2812b_setColor(0, 0, 255, 20, false, i);
 	}
 
-	ws2812b_update_needed=false;
+	micros(100*1000);
 
-	
 	//enable_timer(10000); // refresh pixels and wiiclassic 100 times/s
 
 	while (1) {
+		read_WiiClassic(0);
+		ws2812b_turnoff();
+		ws2812b_enable_pixel(LY);
 		ws2812b_update();
 		micros(10000);
 	}

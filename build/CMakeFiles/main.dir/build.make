@@ -313,6 +313,30 @@ CMakeFiles/main.dir/rpi-pwm.c.obj.provides: CMakeFiles/main.dir/rpi-pwm.c.obj.re
 CMakeFiles/main.dir/rpi-pwm.c.obj.provides.build: CMakeFiles/main.dir/rpi-pwm.c.obj
 
 
+CMakeFiles/main.dir/Game.c.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/Game.c.obj: ../Game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/main.dir/Game.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/Game.c.obj   -c /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.c
+
+CMakeFiles/main.dir/Game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/Game.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.c > CMakeFiles/main.dir/Game.c.i
+
+CMakeFiles/main.dir/Game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/Game.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.c -o CMakeFiles/main.dir/Game.c.s
+
+CMakeFiles/main.dir/Game.c.obj.requires:
+
+.PHONY : CMakeFiles/main.dir/Game.c.obj.requires
+
+CMakeFiles/main.dir/Game.c.obj.provides: CMakeFiles/main.dir/Game.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Game.c.obj.provides.build
+.PHONY : CMakeFiles/main.dir/Game.c.obj.provides
+
+CMakeFiles/main.dir/Game.c.obj.provides.build: CMakeFiles/main.dir/Game.c.obj
+
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.obj" \
@@ -325,7 +349,8 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/rpi-armtimer.c.obj" \
 "CMakeFiles/main.dir/WS2812B.c.obj" \
 "CMakeFiles/main.dir/WiiClassic.c.obj" \
-"CMakeFiles/main.dir/rpi-pwm.c.obj"
+"CMakeFiles/main.dir/rpi-pwm.c.obj" \
+"CMakeFiles/main.dir/Game.c.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -341,9 +366,10 @@ main: CMakeFiles/main.dir/rpi-armtimer.c.obj
 main: CMakeFiles/main.dir/WS2812B.c.obj
 main: CMakeFiles/main.dir/WiiClassic.c.obj
 main: CMakeFiles/main.dir/rpi-pwm.c.obj
+main: CMakeFiles/main.dir/Game.c.obj
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Convert the ELF output file to a binary image"
 	arm-none-eabi-objcopy ./main -O binary ./kernel.img
@@ -364,6 +390,7 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-armtimer.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WS2812B.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WiiClassic.c.obj.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/rpi-pwm.c.obj.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Game.c.obj.requires
 
 .PHONY : CMakeFiles/main.dir/requires
 

@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/WS2812B.c.obj"
   "CMakeFiles/main.dir/WiiClassic.c.obj"
   "CMakeFiles/main.dir/rpi-pwm.c.obj"
+  "CMakeFiles/main.dir/Game.c.obj"
   "main.pdb"
   "main"
 )

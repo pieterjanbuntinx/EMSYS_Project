@@ -13,7 +13,7 @@
 #define SYMBOL_HIGH     0x6 // 1 1 0
 #define SYMBOL_LOW      0x4 // 1 0 0
 #define RESET_DELAY_US  100
-#define no_pixels       60
+#define no_pixels       62
 
 bool ws2812b_update_needed;
 

@@ -3,6 +3,19 @@
 
 CMakeFiles/main.dir/main-start.s.obj: ../main-start.s
 
+CMakeFiles/main.dir/Game.c.obj: ../Game.c
+CMakeFiles/main.dir/Game.c.obj: ../Game.h
+CMakeFiles/main.dir/Game.c.obj: ../WS2812B.h
+CMakeFiles/main.dir/Game.c.obj: ../WS2812b.h
+CMakeFiles/main.dir/Game.c.obj: ../WiiClassic.h
+CMakeFiles/main.dir/Game.c.obj: ../defines.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-armtimer.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-gpio.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-i2c.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-interrupts.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-pwm.h
+CMakeFiles/main.dir/Game.c.obj: ../rpi-uart.h
+
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.c
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812B.h
 CMakeFiles/main.dir/WS2812B.c.obj: ../WS2812b.h

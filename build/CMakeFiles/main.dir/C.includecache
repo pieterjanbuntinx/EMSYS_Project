@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.c
+Game.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.h
+
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/Game.h
+rpi-gpio.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-gpio.h
+rpi-armtimer.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-armtimer.h
+rpi-uart.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/rpi-uart.h
+WiiClassic.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WiiClassic.h
+WS2812B.h
+/mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h
+
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.c
 WS2812B.h
 /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/WS2812B.h

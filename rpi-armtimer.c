@@ -42,7 +42,7 @@ void armtimer_interrupt_handler() {
         if (wii_classic_update) read_WiiClassic(0);
         if (ws2812b_update_needed) {
             ws2812b_turnoff();
-            ws2812b_enable_pixel(RY);
+            ws2812b_enable_pixel(LY);
             ws2812b_update();
         }
     }

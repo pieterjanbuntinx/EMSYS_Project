@@ -65,7 +65,9 @@ add_executable( ${NAME}
     WiiClassic.h
     WiiClassic.c
     rpi-pwm.h
-    rpi-pwm.c )
+    rpi-pwm.c 
+    Game.h
+    Game.c )
 
 add_custom_command(
     TARGET ${NAME} POST_BUILD
