@@ -18,7 +18,7 @@
 bool ws2812b_update_needed;
 
 void init_ws2812b(uint8_t pin);
-void ws2812b_setColor(uint8_t red, uint8_t green, uint8_t blue, uint8_t brightness, bool enable, uint16_t led);
+void ws2812b_setpixel(uint8_t red, uint8_t green, uint8_t blue, bool enable, uint16_t led);
 void ws2812b_update();
 void ws2812b_turnoff();
 void ws2812b_disable_pixel(uint16_t led);

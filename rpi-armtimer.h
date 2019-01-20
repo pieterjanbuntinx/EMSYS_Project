@@ -15,6 +15,7 @@
 #include "rpi-interrupts.h"
 #include "WS2812B.h"
 #include "WiiClassic.h"
+#include "Game.h"
 
 /** @brief See the documentation for the ARM side timer (Section 14 of the
     BCM2835 Peripherals PDF) */

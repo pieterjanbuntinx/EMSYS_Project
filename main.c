@@ -10,9 +10,13 @@ interrupt-driven device driver for the Raspberry Pi 1 Model b+.
 #include "rpi-i2c.h"
 #include "rpi-armtimer.h"
 #include <stdint.h>
+#include <stdbool.h>
 #include "WiiClassic.h"
 #include "WS2812B.h"
 #include "rpi-pwm.h"
+#include "Game.h"
+
+
 
 #define TX_pin 14
 #define RX_pin 15
@@ -58,29 +62,20 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags )
             RPI_ARMTIMER_CTRL_ENABLE |
             RPI_ARMTIMER_CTRL_PRESCALE_1;
 			
+	uprintf("Starting game...\n\r");
 
-	uprintf("Started reading range data...\r\n");
-	micros(100*1000);
+	//enable_timer(5*1000*1000);
 
 	init_WiiClassic();
-
 	init_pwm_hardware();
 	init_ws2812b(WS2812B_pin);
-
-	uint16_t i;
-	for (i = 0; i<no_pixels; i++) {
-		ws2812b_setColor(0, 0, 255, 20, false, i);
-	}
-
 	micros(100*1000);
 
-	//enable_timer(10000); // refresh pixels and wiiclassic 100 times/s
+	init_game();
+	micros(1000);
 
 	while (1) {
-		read_WiiClassic(0);
-		ws2812b_turnoff();
-		ws2812b_enable_pixel(LY);
-		ws2812b_update();
+		game_tick();
 		micros(10000);
 	}
 }

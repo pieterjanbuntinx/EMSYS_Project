@@ -12,15 +12,15 @@ void init_ws2812b(uint8_t pin) {
 			RPI_PWM_CTL_USEF1 | 
 			RPI_PWM_CTL_CLRF1 |
 			RPI_PWM_CTL_MODE1;
+
+    ws2812b_turnoff();
 }
 
-void ws2812b_setColor(uint8_t red, uint8_t green, uint8_t blue, uint8_t brightness, bool enable, uint16_t led) {
-    float b = (float)brightness/255.0;
-    
+void ws2812b_setpixel(uint8_t red, uint8_t green, uint8_t blue, bool enable, uint16_t led) {
     pixel_enable[led] = enable;
-    pixel_data[3*led] = green * (float)b;
-    pixel_data[3*led+1] = red * (float)b;
-    pixel_data[3*led+2] = blue * (float)b;
+    pixel_data[3*led] = green;
+    pixel_data[3*led+1] = red;
+    pixel_data[3*led+2] = blue;
 }
 
 void ws2812b_disable_pixel(uint16_t led) {
