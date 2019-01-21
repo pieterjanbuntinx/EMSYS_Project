@@ -17,6 +17,7 @@ uint8_t read_byte_from_FIFO() {
 }
 
 void write_bytes_to_FIFO(uint8_t *bytes, uint16_t no_bytes) {
+    //write 16 bytes or the number of bytes left to the fifo
     uint16_t i;
     for (i=0; (i<no_bytes) && (i<16); i++) {
         i2c_controller->FIFO = (*(bytes+i) & 0xFF);
@@ -43,6 +44,7 @@ void read_bytes(uint8_t address, uint8_t *bytes, uint16_t no_bytes) {
         // Check if the FIFO is full but not all the data has been transmitted
         if (i2c_controller->S & I2C_S_RXR) {
             uint16_t i;
+            //read 16 bytes from the FIFO
             for (i=0; i<16; i++) {
                 *bytes = read_byte_from_FIFO();
                 bytes++;
