@@ -95,62 +95,6 @@ void ws2812b_update() {
     micros(RESET_DELAY_US);
 }
 
-// void ws2812b_debug() {
-//     uprintf("ws2812b_debug\n\r");
-//     micros(100*1000);
-    
-//     uint32_t fifo_reg = 0;
-//     uint16_t pixel;
-//     uint8_t fifo_reg_bit = 32;
-//     for (pixel = 0; pixel<(no_pixels+1)*3; pixel+=3) {
-//         uint8_t green = pixel_data[pixel];
-//         uint8_t red = pixel_data[pixel+1];
-//         uint8_t blue = pixel_data[pixel+2];
-//         uprintf("pixel num: %d, Green: %x, Blue: %x, Red: %x\n\r", pixel/3, green, blue, red);
-//         micros(100*1000);
-
-//         uint8_t ibit;
-//         for (ibit = 24; ibit>0; ibit--) {
-//             bool bit;
-//             if (ibit > 15) {
-//                 bit = green & (1 << (ibit-1-16));
-//             } else if (ibit > 8) {
-//                 bit = red & (1 << (ibit-1-8));
-//             } else {
-//                 bit = blue & (1 << ibit-1);
-//             }
-
-//             uprintf("bit: %d, ", bit);
-//             micros(100*1000);
-
-//             uint8_t symbol;
-//             if (bit) symbol = SYMBOL_HIGH;
-//             else symbol = SYMBOL_LOW;
-
-//             uprintf("symbol: %d, ", symbol);
-//             micros(1000*100);
-
-//             uint8_t isymbol;
-//             for (isymbol=0; isymbol<3; isymbol++) {
-//                 /**micros(1000*100);
-//                 uprintf("iterate symbol bits, iteration: %d\n\r", isymbol);
-//                 micros(1000*100);*/
-//                 if (fifo_reg_bit < 1) {
-//                     uprintf("\n\rfifo reg full: %x%x\n\r", (fifo_reg >> 16), (fifo_reg & 0x0000FFFF));
-//                     fifo_reg = 0;
-//                     fifo_reg_bit = 32;
-//                 }
-
-//                 bool sym = symbol & (1 << (2-isymbol));
-//                 if (sym) fifo_reg |= 1 << (fifo_reg_bit-1);
-//                 fifo_reg_bit--;
-//             }
-//         }
-//         uprintf("end of pixel num %d\n\r", pixel/3);
-//         micros(100*1000);
-//     }
-// }
-
 void ws2812b_turnoff() {
     uint16_t i;
     for (i = 0; i<no_pixels; i++) {

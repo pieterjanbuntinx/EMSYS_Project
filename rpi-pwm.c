@@ -15,12 +15,12 @@ int init_pwm_hardware(){
     *(clk + RPI_PWMCLK_CNTL) = 0x5A000000 | (1 << 5);
     micros(10);
     
-    //freq of 19.2MHz -> 0,052 us per bit
-    uint16_t idiv = 1; //(uint16_t) (19200000.0f / 19200000.0f);
+    uint16_t idiv = 84; 
 
-    *(clk + RPI_PWMCLK_DIV) = 0x5A000000 | (84 << 13); // 240 MHz / 84 = 3 MHz -> 0,333 us/bit 
+    //shift idiv by 13 instead of 12, 12 doesn't seem to work
+    *(clk + RPI_PWMCLK_DIV) = 0x5A000000 | (idiv << 13); // 240 MHz / 84 -> 0,350 us/bit
 
-    // source=osc and enable clock
+    // source=PLLD and enable clock
     *(clk + RPI_PWMCLK_CNTL) = 0x5A000016;
     
     //disable pwm
