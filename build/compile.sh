@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo mount -t drvfs E: /mnt/e
+sudo mount -t drvfs D: /mnt/d
 make
-cp /mnt/c/Users/piete/Documents/Git/EMSYS_Project_ToF_sensor/build/kernel.img /mnt/e/kernel.img
-sudo umount /mnt/e
+cp /mnt/e/gitwerk/EMSYS_Project/build/kernel.img /mnt/d/kernel.img
+sudo umount /mnt/d

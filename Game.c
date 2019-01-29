@@ -21,7 +21,6 @@ uint8_t bullet1_move_counter;
 uint8_t bullet2_move_counter;
 
 bool objects[game_pixels];
-bool object_spawn_cooldown;
 
 uint8_t left_joy_neutral;
 uint8_t right_joy_neutral;
@@ -29,6 +28,7 @@ uint8_t right_joy_neutral;
 uint8_t brightness;
 bool game_ended = true;
 bool spawn_objects = false;
+uint16_t count = 0;
 
 static void next_round();
 static void remove_objects();
@@ -298,6 +298,7 @@ static void show_health() {
 }
 
 static void next_round(){
+    spawn_objects = false;
     remove_objects();
     spawn_objects = true;
     player1_pos = (distance_from_border_start - 1);
@@ -319,7 +320,6 @@ static void game_reset(){
     next_round();
     player1_health = 3;
     player2_health = 3;
-    object_spawn_cooldown = true;
     play_animation();
     micros(1000*1000);
     show_health();
@@ -464,22 +464,24 @@ static void move_player2() {
 }
 
 static void handle_objects() {
-    //reset game when + and - are pressed simultaniously
+    //reset game when pressing home button
     if (!BUTTONS[7]) {
         game_reset();
         micros(10000);
         return;
     }
 
+    //increase brightness when pressing + button
     if (!BUTTONS[6]) {
         if (brightness < 255) brightness++;
     }
 
+    //decrease brightness when pressing - button
     if (!BUTTONS[8]) {
         if (brightness > 0) brightness--;
     }
 
-    // shoot bullet 1 when pressing ZL and bullet 2 when pressing ZR
+    // shoot bullet for player 1 when pressing ZL and bullet for player 2 when pressing ZR
     if (!BUTTONS[0]){ // ZR
         if (!bullet2_shot) {
             if (player2_pos > 1) {
@@ -488,7 +490,6 @@ static void handle_objects() {
             }
         }
     }
-
     if (!BUTTONS[1]) { // ZL
         if (!bullet1_shot) {
             if (player1_pos < 58) {
@@ -498,6 +499,7 @@ static void handle_objects() {
         }
     }
 
+    //move bullet 1 if it has been shot
     if (bullet1_shot) {
         if (bullet1_move_counter > 255-bullet_speed) {
             bullet1_move_counter = 0;
@@ -506,6 +508,7 @@ static void handle_objects() {
         } else bullet1_move_counter += bullet_speed;
     }
 
+    //move bullet 2 if it has been shot
     if (bullet2_shot) {
         if (bullet2_move_counter > 255-bullet_speed) {
             bullet2_move_counter = 0;
@@ -514,6 +517,7 @@ static void handle_objects() {
         } else bullet2_move_counter += bullet_speed;
     }
 
+    //keep the bullets within bounds 
     if (bullet1_pos > 58) {
         bullet1_shot = false;
     }
@@ -525,6 +529,13 @@ static void handle_objects() {
 }
 
 void game_tick() {
+    count++;
+    if (count > 100 * 5) {
+        count = 0;
+        if (can_objects_spawn()) {
+            spawn_object();
+        }
+    }
     read_WiiClassic(0);
     move_player1();
     move_player2();
