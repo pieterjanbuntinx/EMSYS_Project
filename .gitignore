@@ -1,4 +1,5 @@
 build/*
 !build/configure_rpibplus.sh
+!build/compile.sh
 .vscode/*
 
